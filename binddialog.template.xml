@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeTemplates version="3.0">
+  <CodeTemplate version="2.0">
+    <Header>
+      <_Group>C#</_Group>
+      <Version />
+      <MimeType>text/x-csharp</MimeType>
+      <Shortcut>binddialog</Shortcut>
+      <_Description>bind up a dialog to the view model</_Description>
+      <TemplateType>Unknown</TemplateType>
+    </Header>
+    <Variables />
+    <Code><![CDATA[            this.WhenAnyValue(x => x.ViewModel.SeasonSelectDialog)
+                .IsNotNull()
+                .DistinctUntilChanged()
+                .Where(_ => _seasonSelectDialog == null)
+                .Select(vm => new SeasonSelectDialog(vm))
+                .ObserveOn(RxApp.MainThreadScheduler)
+                .Subscribe(ui => _seasonSelectDialog = ui)
+                .DisposeWith(ControlBindings);
+            ]]></Code>
+  </CodeTemplate>
+</CodeTemplates>

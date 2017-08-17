@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeTemplates version="3.0">
+  <CodeTemplate version="2.0">
+    <Header>
+      <_Group>C#</_Group>
+      <Version />
+      <MimeType>text/x-csharp</MimeType>
+      <Shortcut>bindvm</Shortcut>
+      <_Description>bind to view model</_Description>
+      <TemplateType>Unknown</TemplateType>
+    </Header>
+    <Variables>
+      <Variable name="Property">
+        <Default>PropertyName</Default>
+      </Variable>
+      <Variable name="controlName">
+        <Default>controlName</Default>
+      </Variable>
+    </Variables>
+    <Code><![CDATA[this.Bind(ViewModel, x => x.$Property$, c => c._$controlName$)
+	.DisposeWith(ControlBindings);]]></Code>
+  </CodeTemplate>
+</CodeTemplates>

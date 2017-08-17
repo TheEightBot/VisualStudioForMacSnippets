@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeTemplates version="3.0">
+  <CodeTemplate version="2.0">
+    <Header>
+      <_Group>C#</_Group>
+      <Version />
+      <MimeType>text/x-csharp</MimeType>
+      <Shortcut>classvm</Shortcut>
+      <_Description>eight bot view model</_Description>
+      <TemplateType>Unknown</TemplateType>
+    </Header>
+    <Variables>
+      <Variable name="Name">
+        <Default>notset</Default>
+      </Variable>
+    </Variables>
+    <Code><![CDATA[public class $Name$ : ViewModelBase<$Name$> 
+{
+//using System;
+//using System.Reactive;
+//using System.Reactive.Linq;
+//using System.Runtime.Serialization;
+//using System.Threading.Tasks;
+//using EightBot.BigBang.Extensions;
+//using EightBot.BigBang.ViewModel;
+//using FluentValidation;
+//using ReactiveUI;
+//using Splat;
+
+    public override string Title
+	{
+		get { return string.Empty; }
+	}
+
+    public override AbstractValidator<$Name$> Validator => null;
+ 
+    public $Name$() {}
+
+	protected override void Initialize()
+	{
+	     base.Initialize();
+	}
+
+	public ReactiveCommand<Unit> InitializeData { get; private set; }
+
+
+	protected override void RegisterObservables()
+	{
+	    InitializeData =
+            ReactiveCommand
+                .CreateAsyncTask(_ => {
+                         
+                    return System.Threading.Tasks.Task.FromResult(Unit.Default);
+                })
+                .DisposeWith(ViewModelBindings);
+	}
+}]]></Code>
+  </CodeTemplate>
+</CodeTemplates>

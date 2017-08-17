@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeTemplates version="3.0">
+  <CodeTemplate version="2.0">
+    <Header>
+      <_Group>C#</_Group>
+      <Version />
+      <MimeType>text/x-csharp</MimeType>
+      <Shortcut>bindpicker</Shortcut>
+      <_Description>bind picker</_Description>
+      <TemplateType>Unknown</TemplateType>
+    </Header>
+    <Variables />
+    <Code><![CDATA[this._stateProvince.Picker
+    .Bind(
+        this.WhenAnyValue(x => x.ViewModel.States),
+            x => ViewModel.StateId = x.StateID,
+            x => ViewModel.StateId == x.StateID,
+            x => x.StateName)
+    .DisposeWith(ControlBindings);]]></Code>
+  </CodeTemplate>
+</CodeTemplates>

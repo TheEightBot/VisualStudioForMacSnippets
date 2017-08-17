@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeTemplates version="3.0">
+  <CodeTemplate version="2.0">
+    <Header>
+      <_Group>C#</_Group>
+      <Version />
+      <MimeType>text/x-csharp</MimeType>
+      <Shortcut>bindlist</Shortcut>
+      <_Description>bind a reactive list view</_Description>
+      <TemplateType>Unknown</TemplateType>
+    </Header>
+    <Variables>
+      <Variable name="_myList">
+        <Default>notset</Default>
+      </Variable>
+    </Variables>
+    <Code><![CDATA[            this.$_myList$.Bind(this.WhenAnyValue(x => x.ViewModel.Data))
+                .DisposeWith(ControlBindings);
+
+            this.$_myList$
+                .ListViewItemTapped
+                .Subscribe(selected =>
+                {
+                    $_myList$.SelectedItem = null;
+                })
+                .DisposeWith(ControlBindings);]]></Code>
+  </CodeTemplate>
+</CodeTemplates>

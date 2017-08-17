@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeTemplates version="3.0">
+  <CodeTemplate version="2.0">
+    <Header>
+      <_Group>C#</_Group>
+      <Version />
+      <MimeType>text/x-csharp</MimeType>
+      <Shortcut>propi</Shortcut>
+      <_Description>property changed notification</_Description>
+      <TemplateType>Unknown</TemplateType>
+    </Header>
+    <Variables>
+      <Variable name="type">
+        <Default>Type</Default>
+      </Variable>
+      <Variable name="name">
+        <Default>fieldName</Default>
+      </Variable>
+      <Variable name="NAME">
+        <Default>PropertyName</Default>
+      </Variable>
+    </Variables>
+    <Code><![CDATA[$type$ _$name$;
+[DataMember]
+public $type$ $NAME$ {
+	get { return _$name$; }
+	private set 
+	{
+		 this.RaiseAndSetIfChanged(ref _$name$, value);
+	}
+}]]></Code>
+  </CodeTemplate>
+</CodeTemplates>

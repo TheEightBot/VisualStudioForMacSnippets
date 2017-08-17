@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeTemplates version="3.0">
+  <CodeTemplate version="2.0">
+    <Header>
+      <_Group>C#</_Group>
+      <Version />
+      <MimeType>text/x-csharp</MimeType>
+      <Shortcut>combine</Shortcut>
+      <_Description>combine latest</_Description>
+      <TemplateType>Unknown</TemplateType>
+    </Header>
+    <Variables>
+      <Variable name="Prop1">
+        <Default>Property</Default>
+      </Variable>
+      <Variable name="Prop2">
+        <Default>Property2</Default>
+      </Variable>
+      <Variable name="val1">
+        <Default>local1</Default>
+      </Variable>
+      <Variable name="val2">
+        <Default>local2</Default>
+      </Variable>
+      <Variable name="control">
+        <Default>controlName</Default>
+      </Variable>
+    </Variables>
+    <Code><![CDATA[            Observable
+                .CombineLatest(
+                    this.WhenAnyValue(x => x.ViewModel.$Prop1$),
+                    this.WhenAnyValue(x => x.ViewModel.$Prop2$), 
+                        ($val1$, $val2$) => string.Format("{0}, {1}", $val1$, $val2$))
+                .BindTo(_$control$, c => c.Text)
+                .DisposeWith(ControlBindings);]]></Code>
+  </CodeTemplate>
+</CodeTemplates>

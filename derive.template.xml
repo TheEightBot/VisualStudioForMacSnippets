@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeTemplates version="3.0">
+  <CodeTemplate version="2.0">
+    <Header>
+      <_Group>C#</_Group>
+      <Version />
+      <MimeType>text/x-csharp</MimeType>
+      <Shortcut>derive</Shortcut>
+      <_Description>creates a derived collection filter</_Description>
+      <TemplateType>Unknown</TemplateType>
+    </Header>
+    <Variables>
+      <Variable name="CollectionName">
+        <Default>notset</Default>
+      </Variable>
+    </Variables>
+    <Code><![CDATA[$CollectionName$ = Data.CreateDerivedCollection(
+                x => x,
+                x =>
+                {
+                    //var sbf = SearchQuery;
+
+                    //if (string.IsNullOrWhiteSpace(sbf))
+                    //  return true;
+
+                    //               var item = x.ProductName.ToLower();
+                    ///* Search values */
+                    //return x != null &&
+                    //(
+                    //                   (!string.IsNullOrEmpty(x.ProductName) && item.Contains(sbf.ToLower()))
+                    //);
+                    return true;
+                },
+                null,
+                Observable
+                    .Merge(
+                        this.WhenAnyValue(vm => vm.SearchQuery).Select(_ => Unit.Default),
+                        this.WhenAnyObservable(x => x.RefreshFilter).Select(_ => Unit.Default))
+                    .ObserveOn(RxApp.MainThreadScheduler)
+                    .Throttle(SearchDelay),
+                scheduler: RxApp.MainThreadScheduler)
+                .DisposeWith(ViewModelBindings);]]></Code>
+  </CodeTemplate>
+</CodeTemplates>

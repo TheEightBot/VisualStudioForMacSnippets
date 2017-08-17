@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeTemplates version="3.0">
+  <CodeTemplate version="2.0">
+    <Header>
+      <_Group>C#</_Group>
+      <Version />
+      <MimeType>text/x-csharp</MimeType>
+      <Shortcut>pu</Shortcut>
+      <_Description>EightBot VM</_Description>
+      <TemplateType>Unknown</TemplateType>
+    </Header>
+    <Variables>
+      <Variable name="Name">
+        <Default>ClassName</Default>
+      </Variable>
+    </Variables>
+    <Code><![CDATA[using EightBot.BigBang.ViewModel;
+using FluentValidation;
+
+public class $Name$ : ViewModelBase<$Name$> {
+
+    public override string Title
+	{
+		get { return string.Empty; }
+	}
+
+    public override AbstractValidator<$Name$> Validator
+	{
+		get
+		{
+			return null;
+		}
+	}
+
+    public $Name$() {}
+
+	protected override void Initialize()
+	{
+	     base.Initialize();
+	}
+
+	protected override void RegisterObservables()
+	{
+
+	}
+}]]></Code>
+  </CodeTemplate>
+</CodeTemplates>

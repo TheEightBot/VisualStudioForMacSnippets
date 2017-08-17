@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeTemplates version="3.0">
+  <CodeTemplate version="2.0">
+    <Header>
+      <_Group>C#</_Group>
+      <Version />
+      <MimeType>text/x-csharp</MimeType>
+      <Shortcut>stopwatch</Shortcut>
+      <_Description>creates a stop watch</_Description>
+      <TemplateType>Unknown</TemplateType>
+    </Header>
+    <Variables />
+    <Code><![CDATA[var stopWatch = new System.Diagnostics.Stopwatch();
+stopWatch.Start();
+stopWatch.Stop();
+System.Diagnostics.Debug.WriteLine($"stopWatch time : {stopWatch.Elapsed}");]]></Code>
+  </CodeTemplate>
+</CodeTemplates>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeTemplates version="3.0">
+  <CodeTemplate version="2.0">
+    <Header>
+      <_Group>C#</_Group>
+      <Version />
+      <MimeType>text/x-csharp</MimeType>
+      <Shortcut>classui</Shortcut>
+      <_Description>eight bot class ui template</_Description>
+      <TemplateType>Unknown</TemplateType>
+    </Header>
+    <Variables>
+      <Variable name="Name">
+        <Default>ClassName</Default>
+      </Variable>
+    </Variables>
+    <Code><![CDATA[public class $Name$ : ContentPageBase<ViewModels.$Name$>
+{ 
+//using System;
+//using System.Reactive.Linq;
+//using EightBot.BigBang.Extensions;
+//using EightBot.BigBang.XamForms.Extensions;
+//using EightBot.BigBang.XamForms.Pages;
+//using EightBot.BigBang.XamForms.Views;
+//using ReactiveUI;
+//using Xamarin.Forms;
+
+    Grid _mainLayout;
+
+    public $Name$()
+    {
+        ViewModel = new ViewModels.$Name$();
+    } 
+
+    protected override void SetupUserInterface()
+    {   
+		  _mainLayout = new Grid
+          {
+                BackgroundColor = Color.Transparent,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                Margin = new Thickness(Values.Layout.Padding, Values.Layout.TriplePadding, Values.Layout.Padding, Values.Layout.Padding),
+                ColumnSpacing = Values.Layout.Padding,
+                RowSpacing = Values.Layout.HalfPadding,
+                ColumnDefinitions = new ColumnDefinitionCollection { 
+                    new ColumnDefinition { Width = GridLength.Star },
+                },
+                RowDefinitions = new RowDefinitionCollection {
+                    new RowDefinition { Height = GridLength.Star },
+                    new RowDefinition { Height = GridLength.Star }
+                }
+            };
+
+        Content = _mainLayout;
+    }
+
+    protected override void BindControls()
+    {  
+		this.OneWayBind(ViewModel, x => x.Title, c => c.Title)
+		    .DisposeWith(ControlBindings);
+ 
+        this.WhenAnyValue(x => x.ViewModel)
+		    .IsNotNull()
+		    .InvokeCommand(this, x => x.ViewModel.InitializeData)
+		    .DisposeWith(ControlBindings);
+    }
+}]]></Code>
+  </CodeTemplate>
+</CodeTemplates>

@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeTemplates version="3.0">
+  <CodeTemplate version="2.0">
+    <Header>
+      <_Group>C#</_Group>
+      <Version />
+      <MimeType>text/x-csharp</MimeType>
+      <Shortcut>classlistui</Shortcut>
+      <_Description>Template for reactive list view</_Description>
+      <TemplateType>Unknown</TemplateType>
+    </Header>
+    <Variables>
+      <Variable name="ListName">
+        <Default>notset</Default>
+      </Variable>
+      <Variable name="Model">
+        <Default>notset</Default>
+      </Variable>
+      <Variable name="listName">
+        <Default>myList</Default>
+      </Variable>
+      <Variable name="CellName">
+        <Default>notset</Default>
+      </Variable>
+      <Variable name="ViewName">
+        <Default>notset</Default>
+      </Variable>
+    </Variables>
+    <Code><![CDATA[public class $ViewName$List : ContentPageBase<ViewModels.$ViewName$List>
+    { 
+            //using System;
+            //using EightBot.BigBang.Extensions;
+            //using EightBot.BigBang.XamForms.Extensions;
+            //using EightBot.BigBang.XamForms.Pages;
+            //using EightBot.BigBang.XamForms.Views;
+            //using ReactiveUI;
+            //using Xamarin.Forms;
+
+        Grid _mainLayout;
+
+        ReactiveListView<object> _myList;
+
+        public $ViewName$List()
+        {
+            ViewModel = new ViewModels.$ViewName$List();
+        }
+
+        protected override void SetupUserInterface()
+        {
+            _mainLayout = new Grid
+            {
+                BackgroundColor = Color.Transparent,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand, 
+                ColumnSpacing = Values.Layout.Padding,
+                RowSpacing = Values.Layout.HalfPadding,
+                ColumnDefinitions = new ColumnDefinitionCollection {
+                        new ColumnDefinition { Width = GridLength.Star },
+                    },
+                RowDefinitions = new RowDefinitionCollection {
+                        new RowDefinition { Height = GridLength.Star } 
+                    }
+            };
+
+            _myList = new ReactiveListView<$Model$>(typeof(Cells.$CellName$))
+            {
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                RowHeight = Cells.$CellName$.RequestedHeight
+            };
+
+            _mainLayout.Children.Add(_myList,0,0);
+
+            Content = _mainLayout;
+        }
+
+        protected override void BindControls()
+        {
+            this.OneWayBind(ViewModel, x => x.Title, c => c.Title)
+                .DisposeWith(ControlBindings);
+
+            this._$listName$.Bind(this.WhenAnyValue(x => x.ViewModel.Data))
+                .DisposeWith(ControlBindings);
+
+            this._myList
+                .ListViewItemTapped
+                .Subscribe(selected =>
+                { 
+                     _myList.SelectedItem = null;
+                })
+                .DisposeWith(ControlBindings);
+
+            this.WhenAnyValue(x => x.ViewModel)
+                .IsNotNull()
+                .InvokeCommand(this, x => x.ViewModel.InitializeData)
+                .DisposeWith(ControlBindings);
+        }
+    }]]></Code>
+  </CodeTemplate>
+</CodeTemplates>

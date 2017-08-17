@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeTemplates version="3.0">
+  <CodeTemplate version="2.0">
+    <Header>
+      <_Group>C#</_Group>
+      <Version />
+      <MimeType>text/x-csharp</MimeType>
+      <Shortcut>oaph</Shortcut>
+      <_Description />
+      <TemplateType>Unknown</TemplateType>
+    </Header>
+    <Variables>
+      <Variable name="type">
+        <Default>object</Default>
+      </Variable>
+      <Variable name="privateName" isIdentifier="true">
+        <Default>propertyName</Default>
+      </Variable>
+      <Variable name="PropertyName" isIdentifier="true">
+        <Default>PropertyName</Default>
+      </Variable>
+    </Variables>
+    <Code><![CDATA[ObservableAsPropertyHelper<$type$> _$privateName$;
+
+public $type$ $PropertyName$  {
+	get { return _$privateName$.Value ?? default($type$); }
+}]]></Code>
+  </CodeTemplate>
+</CodeTemplates>

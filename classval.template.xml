@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeTemplates version="3.0">
+  <CodeTemplate version="2.0">
+    <Header>
+      <_Group>C#</_Group>
+      <Version />
+      <MimeType>text/x-csharp</MimeType>
+      <Shortcut>classval</Shortcut>
+      <_Description>fluent validator snippet</_Description>
+      <TemplateType>Unknown</TemplateType>
+    </Header>
+    <Variables>
+      <Variable name="name">
+        <Default>ClassName</Default>
+      </Variable>
+    </Variables>
+    <Code><![CDATA[public class $name$Validator : AbstractValidator<ViewModels.$name$>
+    {
+        public $name$Validator()
+        {
+            //RuleFor(auth => auth.UserName).NotEmpty().Length(4, 20);
+            //RuleFor(auth => auth.Password).NotEmpty().Length(4, 200);
+        }
+    }]]></Code>
+  </CodeTemplate>
+</CodeTemplates>

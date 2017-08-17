@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeTemplates version="3.0">
+  <CodeTemplate version="2.0">
+    <Header>
+      <_Group>C#</_Group>
+      <Version />
+      <MimeType>text/x-csharp</MimeType>
+      <Shortcut>merge</Shortcut>
+      <_Description>observable.merge template</_Description>
+      <TemplateType>Unknown</TemplateType>
+    </Header>
+    <Variables>
+      <Variable name="Value">
+        <Default>notset</Default>
+      </Variable>
+      <Variable name="Bindings">
+        <Default>ControlBindings</Default>
+      </Variable>
+      <Variable name="Command">
+        <Default>InitializeData</Default>
+      </Variable>
+    </Variables>
+    <Code><![CDATA[Observable
+    .Merge(
+        this.WhenAnyObservable(x => x.ViewModel.NavigateTo),
+        this.WhenAnyObservable(x => x.ViewModel.NavigateTo))
+    .Subscribe(val =>
+    {
+
+    }) 
+    .DisposeWith($Bindings$);]]></Code>
+  </CodeTemplate>
+</CodeTemplates>

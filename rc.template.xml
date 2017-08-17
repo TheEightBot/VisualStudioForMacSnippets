@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeTemplates version="3.0">
+  <CodeTemplate version="2.0">
+    <Header>
+      <_Group>C#</_Group>
+      <Version />
+      <MimeType>text/x-csharp</MimeType>
+      <Shortcut>rc</Shortcut>
+      <_Description>reactive command auto property</_Description>
+      <TemplateType>Unknown</TemplateType>
+    </Header>
+    <Variables>
+      <Variable name="CommandName">
+        <Default>Command</Default>
+      </Variable>
+    </Variables>
+    <Code><![CDATA[public ReactiveCommand<Unit> $CommandName$ { get; private set; }]]></Code>
+  </CodeTemplate>
+</CodeTemplates>
