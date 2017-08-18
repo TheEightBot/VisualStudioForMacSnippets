@@ -1,17 +1,15 @@
 ## ReactiveUI / Xamarin Snippets
 
-Keywords
+Add these snippets to **~/Library/VisualStudio/7.0/Snippets**
 
-* **wav** 
+### wav 
 
+Stubs out a ReactiveUI WhenAnyValue subscription block
 
-... Stubs out a ReactiveUI WhenAnyValue subscription block
+![alt text](https://raw.githubusercontent.com/TheEightBot/VisualStudioForMacSnippets/master/wav.gif "ReactiveUI WhenAnyValue")
 
-... ![alt text](https://raw.githubusercontent.com/TheEightBot/VisualStudioForMacSnippets/15fde6b5ff37433e61781150614c81670212e435/wav.gif "ReactiveUI WhenAnyValue")
+### **wao** 
 
-* **wao** 
+Stubs out a ReactiveUI WhenAnyObservable subscription block
 
-
-... Stubs out a ReactiveUI WhenAnyObservable subscription block
-
-... ![alt text](https://raw.githubusercontent.com/TheEightBot/VisualStudioForMacSnippets/15fde6b5ff37433e61781150614c81670212e435/wav.gif "ReactiveUI WhenAnyObservable")
+![alt text](https://raw.githubusercontent.com/TheEightBot/VisualStudioForMacSnippets/master/wao.gif "ReactiveUI WhenAnyObservable")
