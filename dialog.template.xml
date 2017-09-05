@@ -15,130 +15,138 @@
       </Variable>
     </Variables>
     <Code><![CDATA[public class $MyClass$Dialog : EightBot.BigBang.XamForms.PopUp.PopupPageBase<ViewModels.$MyClass$Dialog>
+{ 
+    public const int RequestedHeight = 400;   
+    
+    //using System;
+    //using System.Linq; 
+    //using System.Reactive.Linq;
+    //using EightBot.BigBang.Extensions; 
+    //using EightBot.BigBang.XamForms.Views; 
+    //using ReactiveUI;  
+    //using Xamarin.Forms;
+    //using Rg.Plugins.Popup.Services; 
+    //using EightBot.BigBang.XamForms.Extensions; 
+    //using EightBot.BigBang.XamForms.AttachedProperties;   
+    //using NControl.Controls; 
+
+    StackLayout _toolbar; 
+
+    Button _done, _clear;
+
+    Label _title;
+
+    Grid _mainLayout; 
+
+    public $MyClass$Dialog(ViewModels.$MyClass$Dialog viewModel)
     { 
-//using System;
-//using System.Linq; 
-//using System.Reactive.Linq;
-//using EightBot.BigBang.Extensions; 
-//using EightBot.BigBang.XamForms.Views; 
-//using ReactiveUI;  
-//using Xamarin.Forms;
-//using Rg.Plugins.Popup.Services; 
-//using EightBot.BigBang.XamForms.Extensions; 
-//using EightBot.BigBang.XamForms.AttachedProperties;   
-//using NControl.Controls; 
+        this.CloseWhenBackgroundIsClicked = false;
+        ViewModel = viewModel;
+    }
 
-        StackLayout _toolbar; 
+    protected override void SetupUserInterface()
+    { 
+        _mainLayout = new Grid
+        {
+            Padding = 0,
+            HeightRequest = RequestedHeight,
+            WidthRequest = 325,
+            ColumnSpacing = Values.Layout.Padding,  
+            ColumnDefinitions = new ColumnDefinitionCollection {
+                new ColumnDefinition()
+            },
+            RowDefinitions = new RowDefinitionCollection {
+                new RowDefinition{ Height = GridLength.Auto },
+                new RowDefinition{ Height = GridLength.Auto },
+                new RowDefinition{ Height = GridLength.Auto },
+                new RowDefinition{ Height = GridLength.Auto },
+                new RowDefinition{ Height = GridLength.Auto }, 
 
-        Button _done, _clear;
+            }
+        }; 
 
-        Label _title;
+        _done = new Button
+        {
+            Text = "Done",
+            TextColor = Values.Colors.Blue, 
+            VerticalOptions = LayoutOptions.Center,
+            BorderColor = Values.Colors.Blue, 
+            Style = Values.Theme.BorderButtonStyle,
+            Margin = new Thickness(15, 10)
+        };
 
-        Grid _mainLayout; 
+        _title = new Label
+        {
+            HorizontalOptions = LayoutOptions.FillAndExpand,
+            TextColor = Color.White,
+            VerticalTextAlignment = TextAlignment.Center,
+            HorizontalTextAlignment = TextAlignment.Start,
+            FontSize = Values.Fonts.Large,
+            Margin = new Thickness(Values.Layout.ThicknessDoublePadding.Left, 0, 0, 0)
+        };
 
-        public $MyClass$Dialog(ViewModels.$MyClass$Dialog viewModel)
-        { 
-            this.CloseWhenBackgroundIsClicked = false;
-            ViewModel = viewModel;
-        }
+        _clear = new Button
+        {
+            Text = "Clear",
+            WidthRequest = 75,
+            TextColor = Color.White,
+            VerticalOptions = LayoutOptions.Center,
+            BackgroundColor = Color.Transparent
+        }; 
 
-        protected override void SetupUserInterface()
-        { 
-            _mainLayout = new Grid
-            {
-                Padding = 0,
-                HeightRequest = 350,
-                WidthRequest = 325,
-                ColumnSpacing = Values.Layout.Padding,  
-                ColumnDefinitions = new ColumnDefinitionCollection {
-                    new ColumnDefinition()
-                },
-                RowDefinitions = new RowDefinitionCollection {
-                    new RowDefinition{ Height = GridLength.Auto },
-                    new RowDefinition{ Height = GridLength.Auto },
-                    new RowDefinition{ Height = GridLength.Auto },
-                    new RowDefinition{ Height = GridLength.Auto },
-                    new RowDefinition{ Height = GridLength.Auto }, 
- 
-                }
-            }; 
+        _toolbar = new StackLayout
+        {
+            HeightRequest = 50,
+            Orientation = StackOrientation.Horizontal,
+            HorizontalOptions = LayoutOptions.FillAndExpand,
+            BackgroundColor = Values.Colors.Blue,
+            Children = { 
+                _title,
+                _clear
+            }
+        };  
 
-            _done = new Button
-            {
-                Text = "Done",
-                TextColor = Values.Colors.Blue, 
-                VerticalOptions = LayoutOptions.Center,
-                BorderColor = Values.Colors.Blue, 
-                Style = Values.Theme.BorderButtonStyle,
-                Margin = new Thickness(15, 10)
-            };
+        _mainLayout.Children.Add(_toolbar);
 
-            _title = new Label
-            {
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                TextColor = Color.White,
-                VerticalTextAlignment = TextAlignment.Center,
-                HorizontalTextAlignment = TextAlignment.Start,
-                FontSize = Values.Fonts.Large,
-                Margin = new Thickness(Values.Layout.ThicknessDoublePadding.Left, 0, 0, 0)
-            };
+        var container = new RoundCornerView
+        {
+            Margin = Values.Layout.DoublePadding,
+            VerticalOptions = LayoutOptions.Center,
+            HorizontalOptions = LayoutOptions.Center,
+            BackgroundColor = Values.Colors.White,
+            HeightRequest = RequestedHeight,
+            WidthRequest = 325,
+            Padding = 0,
+            Content = _mainLayout
+        };
 
-            _clear = new Button
-            {
-                Text = "Clear",
-                WidthRequest = 75,
-                TextColor = Color.White,
-                VerticalOptions = LayoutOptions.Center,
-                BackgroundColor = Color.Transparent
-            }; 
+        Content = new ScrollView
+        {
+            HeightRequest = RequestedHeight,
+            WidthRequest = 325,
+            Padding = 0,
+            Content = container
+        };
+    }
 
-            _toolbar = new StackLayout
-            {
-                HeightRequest = 50,
-                Orientation = StackOrientation.Horizontal,
-                HorizontalOptions = LayoutOptions.FillAndExpand,
-                BackgroundColor = Values.Colors.Blue,
-                Children = { 
-                    _title,
-                    _clear
-                }
-            };  
+    protected override void BindControls()
+    {  
+        this.OneWayBind(ViewModel, x => x.Title, c => c._title.Text)
+            .DisposeWith(ControlBindings);
 
-            _mainLayout.Children.Add(_toolbar);
+        //this.BindCommand(ViewModel, x => x.HideDialog, c => c._clear)
+            //.DisposeWith(ControlBindings);
 
-            var container = new RoundCornerView
-            {
-                Margin = Values.Layout.DoublePadding,
-                VerticalOptions = LayoutOptions.Center,
-                HorizontalOptions = LayoutOptions.Center,
-                BackgroundColor = Values.Colors.White,
-                HeightRequest = 400,
-                WidthRequest = 325,
-                Padding = 0,
-                Content = _mainLayout
-            };
- 
-            Content = container;
-        }
-
-        protected override void BindControls()
-        {  
-            this.OneWayBind(ViewModel, x => x.Title, c => c._title.Text)
-                .DisposeWith(ControlBindings);
-
-          //this.BindCommand(ViewModel, x => x.HideDialog, c => c._clear)
-   //           .DisposeWith(ControlBindings);
-
-            //this.WhenAnyObservable(x => x.ViewModel.HideDialog)
-                //.ObserveOn(RxApp.MainThreadScheduler)
-                //.Subscribe(async _ => await PopupNavigation.PopAsync(true))
-                //.DisposeWith(ControlBindings);
-                
-            this.WhenAnyValue(x => x.ViewModel)
-                .IsNotNull()
-                .InvokeCommand(this, x => x.ViewModel.InitializeData)
-                .DisposeWith(ControlBindings);
-        }
-    }]]></Code>
+        //this.WhenAnyObservable(x => x.ViewModel.HideDialog)
+            //.ObserveOn(RxApp.MainThreadScheduler)
+            //.Subscribe(async _ => await PopupNavigation.PopAsync(true))
+            //.DisposeWith(ControlBindings);
+            
+        this.WhenAnyValue(x => x.ViewModel)
+            .IsNotNull()
+            .InvokeCommand(this, x => x.ViewModel.InitializeData)
+            .DisposeWith(ControlBindings);
+    }
+}]]></Code>
   </CodeTemplate>
 </CodeTemplates>
