@@ -13,7 +13,22 @@
       <Variable name="CommandName">
         <Default>Command</Default>
       </Variable>
+      <Variable name="myCommand">
+        <Default>myCommand</Default>
+      </Variable>
+      <Variable name="MyCommand">
+        <Default>MyCommand</Default>
+      </Variable>
     </Variables>
-    <Code><![CDATA[public ReactiveCommand<Unit> $CommandName$ { get; private set; }]]></Code>
+    <Code><![CDATA[        ReactiveCommand<Unit> _$myCommand$;
+        [DataMember]
+        public ReactiveCommand<Unit> $MyCommand$
+        {
+            get { return _$myCommand$; }
+            private set
+            {
+                this.RaiseAndSetIfChanged(ref _$myCommand$, value);
+            }
+        }]]></Code>
   </CodeTemplate>
 </CodeTemplates>
