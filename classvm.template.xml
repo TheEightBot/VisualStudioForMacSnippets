@@ -11,7 +11,7 @@
     </Header>
     <Variables>
       <Variable name="Name">
-        <Default>notset</Default>
+        <Default>MyViewModel</Default>
       </Variable>
     </Variables>
     <Code><![CDATA[public class $Name$ : ViewModelBase<$Name$> 
@@ -41,8 +41,16 @@
 	     base.Initialize();
 	}
 
-	public ReactiveCommand<Unit> InitializeData { get; private set; }
-
+    ReactiveCommand<Unit> _initializeData;
+    [DataMember]
+    public ReactiveCommand<Unit> InitializeData
+    {
+        get { return _initializeData; }
+        private set
+        {
+            this.RaiseAndSetIfChanged(ref _initializeData, value);
+        }
+    } 
 
 	protected override void RegisterObservables()
 	{
