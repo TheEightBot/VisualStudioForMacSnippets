@@ -138,6 +138,7 @@
             //.DisposeWith(ControlBindings);
 
         //this.WhenAnyObservable(x => x.ViewModel.HideDialog)
+            //.Where(_ => PopupNavigation.PopupStack.Any())
             //.ObserveOn(RxApp.MainThreadScheduler)
             //.Subscribe(async _ => await PopupNavigation.PopAsync(true))
             //.DisposeWith(ControlBindings);
