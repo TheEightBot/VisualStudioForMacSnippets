@@ -61,6 +61,11 @@
                     return System.Threading.Tasks.Task.FromResult(Unit.Default);
                 })
                 .DisposeWith(ViewModelBindings);
+
+        // navigation commands
+
+
+        // validation
 	}
 }]]></Code>
   </CodeTemplate>
