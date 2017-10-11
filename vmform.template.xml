@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeTemplates version="3.0">
+  <CodeTemplate version="2.0">
+    <Header>
+      <_Group>C#</_Group>
+      <Version />
+      <MimeType>text/x-csharp</MimeType>
+      <Shortcut>vmform</Shortcut>
+      <_Description>Adds a vm with fluent validation stubs</_Description>
+      <TemplateType>Unknown</TemplateType>
+    </Header>
+    <Variables>
+      <Variable name="Name">
+        <Default>MyForm</Default>
+      </Variable>
+    </Variables>
+    <Code><![CDATA[public class $Name$ : ViewModelBase<$Name$> 
+{
+    //using System;
+    //using System.Reactive;
+    //using System.Reactive.Linq;
+    //using System.Runtime.Serialization;
+    //using System.Threading.Tasks;
+    //using EightBot.BigBang.Extensions;
+    //using EightBot.BigBang.ViewModel;
+    //using FluentValidation;
+    //using ReactiveUI;
+    //using Splat;
+
+    public override string Title
+    {
+        get { return string.Empty; }
+    }
+
+    readonly $Name$Validator _validator = new $Name$Validator();
+    public override AbstractValidator<$Name$> Validator => _validator; 
+ 
+    public $Name$() {}
+
+    protected override void Initialize()
+    {
+         base.Initialize();
+    }
+
+    ReactiveCommand<Unit> _initializeData;
+    [DataMember]
+    public ReactiveCommand<Unit> InitializeData
+    {
+        get { return _initializeData; }
+        private set
+        {
+            this.RaiseAndSetIfChanged(ref _initializeData, value);
+        }
+    } 
+
+    ReactiveCommand<UserError> _displayErrorInformation;
+    [DataMember]
+    public ReactiveCommand<UserError> DisplayErrorInformation
+    {
+        get { return _displayErrorInformation; }
+        private set
+        {
+            this.RaiseAndSetIfChanged(ref _displayErrorInformation, value);
+        }
+    }
+
+    protected override void RegisterObservables()
+    {
+        InitializeData =
+            ReactiveCommand
+                .CreateAsyncTask(_ => {
+                         
+                    return System.Threading.Tasks.Task.FromResult(Unit.Default);
+                })
+                .DisposeWith(ViewModelBindings);
+
+        /* Navigation Commands *****/
+ 
+
+        /* Validation *****/
+
+        DisplayErrorInformation = ReactiveCommand.CreateAsyncTask(errorInfo => Task.FromResult(errorInfo as UserError)).DisposeWith(ViewModelBindings);
+
+//        var validationTriggers =
+//            Observable.
+//                Merge(this.WhenAnyValue(x => x.Username).Select(_ => Unit.Default),
+//                        this.WhenAnyValue(x => x.Password).Select(_ => Unit.Default)); 
+
+//        this.RegisterValidation(validationTriggers)
+//            .DisposeWith(ViewModelBindings);
+
+        /* Observables *****/
+    } 
+ 
+    // TODO: either remove this or move this into its own file!
+    public class $Name$Validator : AbstractValidator<ViewModels.$Name$>
+    {
+        public $Name$Validator()
+        { 
+            //RuleFor(auth => auth.UserName).NotEmpty().Length(4, 20);
+            //RuleFor(auth => auth.Password).NotEmpty().Length(4, 200);
+        }
+    } 
+}]]></Code>
+  </CodeTemplate>
+</CodeTemplates>
