@@ -28,18 +28,18 @@
 //using Splat;
 
     public override string Title
-	{
-		get { return string.Empty; }
-	}
+    {
+        get { return string.Empty; }
+    }
 
     public override AbstractValidator<$Name$> Validator => null;
  
     public $Name$() {}
 
-	protected override void Initialize()
-	{
-	     base.Initialize();
-	}
+    protected override void Initialize()
+    {
+         base.Initialize();
+    }
 
     ReactiveCommand<Unit> _initializeData;
     [DataMember]
@@ -52,9 +52,9 @@
         }
     } 
 
-	protected override void RegisterObservables()
-	{
-	    InitializeData =
+    protected override void RegisterObservables()
+    {
+        InitializeData =
             ReactiveCommand
                 .CreateAsyncTask(_ => {
                          
@@ -62,11 +62,15 @@
                 })
                 .DisposeWith(ViewModelBindings);
 
-        // navigation commands
+        /* Navigation Commands *****/
+ 
+
+        /* Validation *****/
 
 
-        // validation
-	}
+        /* Observables *****/
+    }
+
 }]]></Code>
   </CodeTemplate>
 </CodeTemplates>

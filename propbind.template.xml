@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeTemplates version="3.0">
+  <CodeTemplate version="2.0">
+    <Header>
+      <_Group>C#</_Group>
+      <Version />
+      <MimeType>text/x-csharp</MimeType>
+      <Shortcut>propbind</Shortcut>
+      <_Description>Creates a bindable property</_Description>
+      <TemplateType>Unknown</TemplateType>
+    </Header>
+    <Variables>
+      <Variable name="Some">
+        <Default>Field</Default>
+      </Variable>
+      <Variable name="SomeType">
+        <Default>string</Default>
+      </Variable>
+      <Variable name="SomeClass">
+        <Default>MyClass</Default>
+      </Variable>
+    </Variables>
+    <Code><![CDATA[        public static BindableProperty $Some$Property =
+            BindableProperty.Create(nameof($Some$), typeof($SomeType$), typeof($SomeClass$), default($SomeType$),
+                                    propertyChanged: (bindable, oldValue, newValue) => (bindable as $SomeClass$)?.InvalidateSurface());
+
+        public $SomeType$ $Some$
+        {
+            get { return ($SomeType$)GetValue($Some$Property); }
+            set { SetValue($Some$Property, value); }
+        } ]]></Code>
+  </CodeTemplate>
+</CodeTemplates>
