@@ -11,17 +11,15 @@
     </Header>
     <Variables />
     <Code><![CDATA[_mainLayout = new Grid()
-            {
-                ColumnDefinitions = new ColumnDefinitionCollection()
-                {
-                    new ColumnDefinition() { Width = GridLength.Star }
-                },
-                RowDefinitions = new RowDefinitionCollection()
-                {
-                    new RowDefinition() { Height = GridLength.Auto },
-                    _contentRow
-
-                }
-            };]]></Code>
+{
+    ColumnDefinitions = new ColumnDefinitionCollection()
+    {
+        new ColumnDefinition() { Width = GridLength.Star }
+    },
+    RowDefinitions = new RowDefinitionCollection()
+    {
+        new RowDefinition() { Height = GridLength.Star },
+    }
+};]]></Code>
   </CodeTemplate>
 </CodeTemplates>
