@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeTemplates version="3.0">
+  <CodeTemplate version="2.0">
+    <Header>
+      <_Group>C#</_Group>
+      <Version />
+      <MimeType>text/x-csharp</MimeType>
+      <Shortcut>uicontentview</Shortcut>
+      <_Description>fleshes out a content view</_Description>
+      <TemplateType>Unknown</TemplateType>
+    </Header>
+    <Variables>
+      <Variable name="MyContent">
+        <Default>MyContent</Default>
+      </Variable>
+    </Variables>
+    <Code><![CDATA[public class $MyContent$View : ContentViewBase<ViewModels.$MyContent$View>
+    {
+        Grid _mainLayout;
+
+        public $MyContent$View()
+        {
+            ViewModel = new ViewModels.$MyContent$View();
+        }
+
+        protected override void SetupUserInterface()
+        {
+            _mainLayout = new Grid()
+            {
+                ColumnDefinitions = new ColumnDefinitionCollection()
+                {
+                    new ColumnDefinition() { Width = GridLength.Star }
+                },
+                RowDefinitions = new RowDefinitionCollection()
+                {
+                    new RowDefinition() { Height = GridLength.Star },
+                }
+            };
+
+
+            Content = _mainLayout;
+        }
+
+        protected override void BindControls()
+        {
+             
+        } 
+    }]]></Code>
+  </CodeTemplate>
+</CodeTemplates>
