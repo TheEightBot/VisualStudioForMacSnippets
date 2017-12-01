@@ -53,6 +53,17 @@
         }
     } 
 
+    ReactiveCommand<UserError> _displayErrorInformation;
+    [DataMember]
+    public ReactiveCommand<UserError> DisplayErrorInformation
+    {
+        get { return _displayErrorInformation; }
+        private set
+        {
+            this.RaiseAndSetIfChanged(ref _displayErrorInformation, value);
+        }
+    } 
+
     protected override void RegisterObservables()
     {
         InitializeData =
@@ -62,6 +73,8 @@
                     return System.Threading.Tasks.Task.FromResult(Unit.Default);
                 })
                 .DisposeWith(ViewModelBindings);
+
+        DisplayErrorInformation = ReactiveCommand.CreateAsyncTask(errorInfo => Task.FromResult(errorInfo as UserError)).DisposeWith(ViewModelBindings);
 
         /* Navigation Commands *****/
  
