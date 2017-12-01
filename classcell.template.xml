@@ -17,6 +17,7 @@
     <Code><![CDATA[public class $Name$Cell : ReactiveViewCell<ViewModels.$Name$Item>
 { 
 //using System;
+//using System.Linq;
 //using EightBot.BigBang.Extensions;
 //using EightBot.BigBang.XamForms.Pages;
 //using EightBot.BigBang.XamForms.Views;

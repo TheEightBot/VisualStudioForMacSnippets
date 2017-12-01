@@ -29,12 +29,14 @@
     <Code><![CDATA[public class $ViewName$List : ContentPageBase<ViewModels.$ViewName$List>
     { 
             //using System;
+            //using System.Linq;
             //using EightBot.BigBang.Extensions;
             //using EightBot.BigBang.XamForms.Extensions;
             //using EightBot.BigBang.XamForms.Pages;
             //using EightBot.BigBang.XamForms.Views;
             //using ReactiveUI;
             //using Xamarin.Forms;
+
 
         Grid _mainLayout;
 
