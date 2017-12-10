@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeTemplates version="3.0">
+  <CodeTemplate version="2.0">
+    <Header>
+      <_Group>C#</_Group>
+      <Version />
+      <MimeType>text/x-csharp</MimeType>
+      <Shortcut>ifos</Shortcut>
+      <_Description>creates os branching</_Description>
+      <TemplateType>Unknown</TemplateType>
+    </Header>
+    <Variables />
+    <Code><![CDATA[#if __ANDROID__
+    // android stuff
+#endif
+#if __IOS__
+    // ios stuff
+#endif]]></Code>
+  </CodeTemplate>
+</CodeTemplates>
