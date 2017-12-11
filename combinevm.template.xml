@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeTemplates version="3.0">
+  <CodeTemplate version="2.0">
+    <Header>
+      <_Group>C#</_Group>
+      <Version />
+      <MimeType>text/x-csharp</MimeType>
+      <Shortcut>combinevm</Shortcut>
+      <_Description>creates a combine observable in the vm</_Description>
+      <TemplateType>Unknown</TemplateType>
+    </Header>
+    <Variables>
+      <Variable name="Property">
+        <Default>PropertyOne</Default>
+      </Variable>
+      <Variable name="Property2">
+        <Default>PropertyTwo</Default>
+      </Variable>
+      <Variable name="local1">
+        <Default>localOne</Default>
+      </Variable>
+      <Variable name="local2">
+        <Default>localTwo</Default>
+      </Variable>
+    </Variables>
+    <Code><![CDATA[            Observable
+                .CombineLatest(
+                    this.WhenAnyValue(x => x.$Property$),
+                    this.WhenAnyValue(x => x.$Property2$),
+                    ($local1$, $local2$) => new { })
+                .Subscribe(_ => { })
+                .DisposeWith(ViewModelBindings);]]></Code>
+  </CodeTemplate>
+</CodeTemplates>
