@@ -10,7 +10,7 @@
       <TemplateType>Unknown</TemplateType>
     </Header>
     <Variables />
-    <Code><![CDATA[                HorizontalOptions = LayoutOptions.CenterAndExpand,
-                VerticalOptions = LayoutOptions.CenterAndExpand,]]></Code>
+    <Code><![CDATA[HorizontalOptions = LayoutOptions.FillAndExpand,
+VerticalOptions = LayoutOptions.FillAndExpand,]]></Code>
   </CodeTemplate>
 </CodeTemplates>

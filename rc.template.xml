@@ -19,10 +19,13 @@
       <Variable name="MyCommand">
         <Default>MyCommand</Default>
       </Variable>
+      <Variable name="Unit">
+        <Default>Unit</Default>
+      </Variable>
     </Variables>
-    <Code><![CDATA[        ReactiveCommand<Unit> _$myCommand$;
+    <Code><![CDATA[        ReactiveCommand<$Unit$> _$myCommand$;
         [DataMember]
-        public ReactiveCommand<Unit> $MyCommand$
+        public ReactiveCommand<$Unit$> $MyCommand$
         {
             get { return _$myCommand$; }
             private set
