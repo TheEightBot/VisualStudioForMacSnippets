@@ -354,6 +354,10 @@ _$myLabel$ = new Label
   };
 ```
 
+### taskr
+
+```await Task.Run(()=> { });```
+
 ### stopwatch
 
 ```
