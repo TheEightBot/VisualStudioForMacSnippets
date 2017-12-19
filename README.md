@@ -260,6 +260,58 @@ public class $Name$ : ContentPageBase<ViewModels.$Name$>
 }
 ```
 
+### classcell
+
+```
+public class $Name$Cell : ReactiveViewCell<ViewModels.$Name$Item>
+{ 
+//using System;
+//using System.Linq;
+//using EightBot.BigBang.Extensions;
+//using EightBot.BigBang.XamForms.Pages;
+//using EightBot.BigBang.XamForms.Views;
+//using ReactiveUI;
+//using ReactiveUI.XamForms;
+//using Xamarin.Forms;
+
+    public const int RequestedHeight = Values.Layout.StandardCellHeight;
+
+    Grid _mainLayout;
+
+    public $Name$Cell()
+    {
+        ViewModel = new ViewModels.$Name$Item();
+    } 
+
+    protected override void SetupUserInterface()
+    {   
+         _mainLayout = new Grid
+            {
+                BackgroundColor = Color.Transparent,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand, 
+                RowSpacing = Values.Layout.HalfPadding,
+                ColumnDefinitions = new ColumnDefinitionCollection {
+                        new ColumnDefinition { Width = GridLength.Star },
+                    },
+                RowDefinitions = new RowDefinitionCollection {
+                        new RowDefinition { Height = GridLength.Star },
+                        new RowDefinition { Height = GridLength.Star }
+                    }
+            };
+
+            View = _mainLayout;
+    }
+
+    protected override void BindControls()
+    {  
+        this.WhenAnyValue(x => x.ViewModel)
+            .IsNotNull()
+            .InvokeCommand(this, x => x.ViewModel.InitializeData);
+    }
+}
+```
+
 ### dw
 
 ```System.Diagnostics.Debug.WriteLine($"{val}");```
@@ -275,7 +327,21 @@ VerticalOptions = LayoutOptions.FillAndExpand,
 
 ```var repo = Locator.CurrentMutable.GetService<$SomeService$>();```
 
+### grid
 
+```
+_mainLayout = new Grid()
+{
+    ColumnDefinitions = new ColumnDefinitionCollection()
+    {
+        new ColumnDefinition() { Width = GridLength.Star }
+    },
+    RowDefinitions = new RowDefinitionCollection()
+    {
+        new RowDefinition() { Height = GridLength.Star },
+    }
+};
+```
 
 ### label
 
