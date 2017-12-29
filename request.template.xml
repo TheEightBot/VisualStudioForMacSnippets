@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeTemplates version="3.0">
+  <CodeTemplate version="2.0">
+    <Header>
+      <_Group>C#</_Group>
+      <Version />
+      <MimeType>text/x-csharp</MimeType>
+      <Shortcut>request</Shortcut>
+      <_Description>Wires up request system that displays a dialog to the user requesting confirmation</_Description>
+      <TemplateType>Unknown</TemplateType>
+    </Header>
+    <Variables>
+      <Variable name="DoAThing">
+        <Default>RemoveItem</Default>
+      </Variable>
+      <Variable name="ShouldDoAThingTitle">
+        <Default>"Are you sure?"</Default>
+      </Variable>
+      <Variable name="ShouldDoAThingMessage">
+        <Default>"This operation cannot be undone!"</Default>
+      </Variable>
+      <Variable name="DontDoTheThing">
+        <Default>Nevermind</Default>
+      </Variable>
+    </Variables>
+    <Code><![CDATA[            var should$DoAThing$ =
+                this.WhenAnyObservable(x => x.ViewModel.Request$DoAThing$)
+                    .ObserveOn(RxApp.MainThreadScheduler)
+                    .SelectMany(async _ => await DisplayAlert($ShouldDoAThingTitle$, $ShouldDoAThingMessage$, "Yes", "Cancel"))
+                    .Publish().RefCount();
+
+                should$DoAThing$
+                    .WhenIsTrue()
+                    .InvokeCommand(this, c => c.ViewModel.$DoAThing$)
+                    .DisposeWith(ControlBindings);
+
+                should$DoAThing$
+                    .WhenIsFalse()
+                    .InvokeCommand(this, c => c.ViewModel.$DontDoTheThing$)
+                    .DisposeWith(ControlBindings);]]></Code>
+  </CodeTemplate>
+</CodeTemplates>
