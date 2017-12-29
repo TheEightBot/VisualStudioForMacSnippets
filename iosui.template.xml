@@ -35,6 +35,9 @@
 
         protected override void BindControls()
         {
+            this.OneWayBind(ViewModel, x => x.Title, c => c.Title)
+                .DisposeWith(ControlBindings);
+
             Observable
                 .Merge(
                     this.WhenAnyValue(x => x.ViewModel).IsNotNull().Select(_ => Unit.Default),
