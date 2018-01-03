@@ -23,7 +23,7 @@
 //using EightBot.BigBang.Extensions;
 //using EightBot.BigBang.iOS.ViewControllers;
 //using ReactiveUI;
-        public PropertyList()
+        public $ViewController$()
         {
             ViewModel = new ViewModels.$ViewController$();
         } 
