@@ -10,12 +10,12 @@
       <TemplateType>Unknown</TemplateType>
     </Header>
     <Variables />
-    <Code><![CDATA[this._stateProvince.Picker
+    <Code><![CDATA[this._$myPicker$.Picker
     .Bind(
-        this.WhenAnyValue(x => x.ViewModel.States),
-            x => ViewModel.StateId = x.StateID,
-            x => ViewModel.StateId == x.StateID,
-            x => x.StateName)
+        this.WhenAnyValue(x => x.ViewModel.$Collection$),
+            x => ViewModel.$SomeId$ = x.$SomeId2$,
+            x => ViewModel.$SomeId$ == x.$SomeId2$,
+            x => x.$SomeLabel$)
     .DisposeWith(ControlBindings);]]></Code>
   </CodeTemplate>
 </CodeTemplates>
