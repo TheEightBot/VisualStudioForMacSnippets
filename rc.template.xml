@@ -22,15 +22,27 @@
       <Variable name="Unit">
         <Default>Unit</Default>
       </Variable>
+      <Variable name="TParam">
+        <Default>Param</Default>
+      </Variable>
+      <Variable name="TReturn">
+        <Default>Return</Default>
+      </Variable>
+      <Variable name="someCommand">
+        <Default>someCommand</Default>
+      </Variable>
+      <Variable name="SomeCommand">
+        <Default>SomeCommand</Default>
+      </Variable>
     </Variables>
-    <Code><![CDATA[        ReactiveCommand<$Unit$> _$myCommand$;
+    <Code><![CDATA[        ReactiveCommand<$TParam$, $TReturn$> _$someCommand$;
         [DataMember]
-        public ReactiveCommand<$Unit$> $MyCommand$
+        public ReactiveCommand<$TParam$, $TReturn$> $SomeCommand$
         {
-            get { return _$myCommand$; }
+            get { return _$someCommand$; }
             private set
             {
-                this.RaiseAndSetIfChanged(ref _$myCommand$, value);
+                this.RaiseAndSetIfChanged(ref _$someCommand$, value);
             }
         }]]></Code>
   </CodeTemplate>
