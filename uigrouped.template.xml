@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeTemplates version="3.0">
+  <CodeTemplate version="2.0">
+    <Header>
+      <_Group>C#</_Group>
+      <Version />
+      <MimeType>text/x-csharp</MimeType>
+      <Shortcut>uigrouped</Shortcut>
+      <_Description>Sets up a grouped list view class</_Description>
+      <TemplateType>Unknown</TemplateType>
+    </Header>
+    <Variables>
+      <Variable name="SomeObject">
+        <Default>notset</Default>
+      </Variable>
+      <Variable name="_someObject">
+        <Default>notset</Default>
+      </Variable>
+    </Variables>
+    <Code><![CDATA[    public class $SomeObject$List : ContentPageBase<ViewModels.$SomeObject$List>
+    {
+        //using System;
+        //using System.Reactive.Linq;
+        //using EightBot.BigBang.Extensions;
+        //using EightBot.BigBang.XamForms.Extensions;
+        //using EightBot.BigBang.XamForms.Pages;
+        //using EightBot.BigBang.XamForms.Views;
+        //using ReactiveUI;
+        //using Xamarin.Forms;
+        //using System.Reactive;
+        //using Aurora.Extensions;
+        //using Rg.Plugins.Popup.Services;
+        //using EightBot.BigBang.XamForms.PopUp.Extensions;
+        //using System.Linq;
+
+        Grid _mainLayout; 
+
+        GroupedReactiveListView<ViewModels.$SomeObject$List.$SomeObject$ListView, ViewModels.$SomeObject$Cell> $_someObject$List;
+ 
+        public $SomeObject$List()
+        {
+            ViewModel = new ViewModels.$SomeObject$List();
+        }
+
+        protected override void SetupUserInterface()
+        {
+            NavigationPage.SetBackButtonTitle(this, "Back");
+
+            _mainLayout = new Grid
+            {
+                BackgroundColor = Color.Transparent,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                ColumnSpacing = Values.Layout.Padding,
+                RowSpacing = Values.Layout.HalfPadding,
+                ColumnDefinitions = new ColumnDefinitionCollection {
+                    new ColumnDefinition { Width = GridLength.Star },
+                },
+                RowDefinitions = new RowDefinitionCollection {
+                    new RowDefinition { Height = GridLength.Star }
+                }
+            };
+
+            $_someObject$List = new GroupedReactiveListView<
+                ViewModels.$SomeObject$List.$SomeObject$ListView,
+                ViewModels.$SomeObject$Cell>(typeof(Cells.$SomeObject$Cell), typeof(Cells.$SomeObject$HeaderCell), true)
+            {
+                IsPullToRefreshEnabled = false,
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                SeparatorColor = Values.Colors.PlaceholderGray,
+                BackgroundColor = Color.Transparent
+            };
+
+            _mainLayout.Children.Add($_someObject$List, 0, 0);
+ 
+            Content = _mainLayout;  
+
+            this.BackgroundColor = Values.Colors.PageBackground;
+        }
+
+        protected override void BindControls()
+        {
+            this.OneWayBind(ViewModel, x => x.Title, c => c.Title)
+                .DisposeWith(ControlBindings);
+ 
+            $_someObject$List
+                .Bind(this.WhenAnyValue(x => x.ViewModel.$SomeObject$s))
+                .DisposeWith(ControlBindings);
+
+            $_someObject$List
+                .ListViewItemSelected
+                .IsNotNull()
+                .SubscribeOn(RxApp.MainThreadScheduler) 
+                .Do(x => $_someObject$List.SelectedItem = null)
+                .SubscribeAsync(async x => 
+                { 
+
+                }) 
+                .DisposeWith(ControlBindings);
+  
+            Observable
+                .Merge(
+                    this.WhenAnyValue(x => x.ViewModel).IsNotNull().Select(_ => Unit.Default),
+                    this.WhenAnyObservable(x => x.Activated).Skip(1))
+                .InvokeCommand(this, x => x.ViewModel.InitializeData)
+                .DisposeWith(ControlBindings);
+        }
+    }]]></Code>
+  </CodeTemplate>
+</CodeTemplates>

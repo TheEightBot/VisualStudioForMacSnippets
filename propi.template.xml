@@ -6,28 +6,26 @@
       <Version />
       <MimeType>text/x-csharp</MimeType>
       <Shortcut>propi</Shortcut>
-      <_Description>property changed notification</_Description>
+      <_Description>updated propi</_Description>
       <TemplateType>Unknown</TemplateType>
     </Header>
     <Variables>
-      <Variable name="type">
-        <Default>Type</Default>
+      <Variable name="someType">
+        <Default>string</Default>
       </Variable>
-      <Variable name="name">
-        <Default>fieldName</Default>
+      <Variable name="someProperty">
+        <Default>SomeProperty</Default>
       </Variable>
-      <Variable name="NAME">
-        <Default>PropertyName</Default>
+      <Variable name="SomeProperty">
+        <Default>notset</Default>
       </Variable>
     </Variables>
-    <Code><![CDATA[$type$ _$name$;
+    <Code><![CDATA[$someType$ _$someProperty$;
 [DataMember]
-public $type$ $NAME$ {
-	get { return _$name$; }
-	private set 
-	{
-		 this.RaiseAndSetIfChanged(ref _$name$, value);
-	}
+public $someType$ $SomeProperty$
+{
+    get => _$someProperty$;
+    set => this.RaiseAndSetIfChanged(ref _$someProperty$, value); 
 }]]></Code>
   </CodeTemplate>
 </CodeTemplates>

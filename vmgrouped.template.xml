@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeTemplates version="3.0">
+  <CodeTemplate version="2.0">
+    <Header>
+      <_Group>C#</_Group>
+      <Version />
+      <MimeType>text/x-csharp</MimeType>
+      <Shortcut>vmgrouped</Shortcut>
+      <_Description>viewmodel side of grouped list</_Description>
+      <TemplateType>Unknown</TemplateType>
+    </Header>
+    <Variables>
+      <Variable name="SomeObject">
+        <Default>notset</Default>
+      </Variable>
+      <Variable name="_someObject">
+        <Default>notset</Default>
+      </Variable>
+    </Variables>
+    <Code><![CDATA[    public class $SomeObject$List : ViewModelBase
+    {  
+        //using System;
+        //using System.Collections.Generic;
+        //using System.Linq;
+        //using System.Reactive;
+        //using System.Reactive.Disposables;
+        //using System.Reactive.Linq;
+        //using System.Runtime.Serialization;
+        //using System.Threading.Tasks;
+        //using EightBot.BigBang.Extensions;
+        //using EightBot.BigBang.ViewModel;
+        //using FluentValidation;
+        //using ReactiveUI;
+        //using Splat;
+
+        public override string Title
+        {
+            get { return "$SomeObject$s"; }
+        } 
+
+        ReactiveList<$SomeObject$ListView> $_someObject$s;
+        [DataMember]
+        public ReactiveList<$SomeObject$ListView> $SomeObject$s
+        {
+            get { return $_someObject$s; }
+            private set
+            {
+                this.RaiseAndSetIfChanged(ref $_someObject$s, value);
+            }
+        }
+
+        ReactiveCommand<Unit, Unit> _initializeData;
+        [DataMember]
+        public ReactiveCommand<Unit, Unit> InitializeData
+        {
+            get { return _initializeData; }
+            private set
+            {
+                this.RaiseAndSetIfChanged(ref _initializeData, value);
+            }
+        }
+  
+        public $SomeObject$List() { }
+
+        protected override void Initialize()
+        {
+            base.Initialize();
+            $SomeObject$s = new ReactiveList<$SomeObject$ListView>();
+        }
+
+        protected override void RegisterObservables()
+        {
+            InitializeData =
+                ReactiveCommand
+                    .CreateFromTask<Unit, Unit>(async _ =>
+                    { 
+                        /* 
+                            try snippet sketchgroup
+                        */
+                        return Unit.Default;
+                    })
+                    .DisposeWith(ViewModelBindings); 
+        } 
+
+        public class $SomeObject$ListView : ReactiveList<ViewModels.$SomeObject$s.$SomeObject$Cell>
+        {
+            bool _isAwesome;
+            [DataMember]
+            public bool IsAwesome
+            {
+                get { return _isAwesome; }
+                set
+                {
+                    this.RaiseAndSetIfChanged(ref _isAwesome, value);
+                }
+            }
+        }
+    }]]></Code>
+  </CodeTemplate>
+</CodeTemplates>

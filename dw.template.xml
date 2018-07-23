@@ -9,14 +9,7 @@
       <_Description>debug writeline</_Description>
       <TemplateType>Unknown</TemplateType>
     </Header>
-    <Variables>
-      <Variable name="&quot;">
-        <Default>notset</Default>
-      </Variable>
-      <Variable name="&quot;{">
-        <Default>notset</Default>
-      </Variable>
-    </Variables>
-    <Code><![CDATA[System.Diagnostics.Debug.WriteLine($"{val}");]]></Code>
+    <Variables />
+    <Code><![CDATA[System.Diagnostics.Debug.WriteLine($"{x}");]]></Code>
   </CodeTemplate>
 </CodeTemplates>

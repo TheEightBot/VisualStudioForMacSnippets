@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeTemplates version="3.0">
+  <CodeTemplate version="2.0">
+    <Header>
+      <_Group>C#</_Group>
+      <Version />
+      <MimeType>text/x-csharp</MimeType>
+      <Shortcut>sketchgroup</Shortcut>
+      <_Description>sketches out a grouped list dealer</_Description>
+      <TemplateType>Unknown</TemplateType>
+    </Header>
+    <Variables>
+      <Variable name="SomeObject">
+        <Default>notset</Default>
+      </Variable>
+    </Variables>
+    <Code><![CDATA[/*
+        // this is just a template, do not expect this to compile!
+
+        var items = Get$SomeObject$s();
+        var headers = await Task.Run(() => items.Select(x => x.Area).Distinct().OrderBy(x => x).Select(x => new ViewModels.$SomeObject$s.$SomeObject$List.$SomeObject$ListView { Area = x}).ToList());
+
+        if (items?.Any() ?? false)
+        {
+            using ($SomeObject$s.SuppressChangeNotifications())
+            {
+                $SomeObject$s.Clear();
+                $SomeObject$s.AddRange(
+                        await Task.Run(() =>
+                            headers
+                            .Select(x =>
+                            {
+                                switch (x.Area)
+                                {
+                                    case $SomeObject$Area.Notifications:
+                                        x.AddRange(items.Where(u => u.Area == $SomeObject$Area.Notifications).Select(u => new $SomeObject$Cell { Data = u }));
+                                        break;
+                                default:
+                                        x.AddRange(items.Where(u => u.Area == $SomeObject$Area.General).Select(u => new $SomeObject$Cell {Data = u}));
+                                        break;
+                                }
+                                
+                                return x;
+                            })
+                            .ToList()));
+            } 
+        }  
+*/]]></Code>
+  </CodeTemplate>
+</CodeTemplates>
