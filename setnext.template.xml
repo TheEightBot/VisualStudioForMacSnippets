@@ -5,15 +5,18 @@
       <_Group>C#</_Group>
       <Version />
       <MimeType>text/x-csharp</MimeType>
-      <Shortcut>rtrig</Shortcut>
-      <_Description>reactive trigger</_Description>
+      <Shortcut>setnext</Shortcut>
+      <_Description />
       <TemplateType>Unknown</TemplateType>
     </Header>
     <Variables>
-      <Variable name="SomeCommand">
+      <Variable name="control">
+        <Default>notset</Default>
+      </Variable>
+      <Variable name="nextControl">
         <Default>notset</Default>
       </Variable>
     </Variables>
-    <Code><![CDATA[$SomeCommand$ = ReactiveCommand.Create(() => { }).DisposeWith(ViewModelBindings);]]></Code>
+    <Code><![CDATA[_$control$.EditingView.SetNextControl(_$nextControl$.EditingView);]]></Code>
   </CodeTemplate>
 </CodeTemplates>

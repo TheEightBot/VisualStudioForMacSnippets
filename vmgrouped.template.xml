@@ -39,7 +39,7 @@
         } 
 
         ReactiveList<$SomeObject$ListView> $_someObject$s;
-        [DataMember]
+
         public ReactiveList<$SomeObject$ListView> $SomeObject$s
         {
             get { return $_someObject$s; }
@@ -50,7 +50,7 @@
         }
 
         ReactiveCommand<Unit, Unit> _initializeData;
-        [DataMember]
+
         public ReactiveCommand<Unit, Unit> InitializeData
         {
             get { return _initializeData; }

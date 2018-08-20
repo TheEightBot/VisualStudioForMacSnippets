@@ -54,7 +54,7 @@
     } 
 
     ReactiveCommand<UserError> _displayErrorInformation;
-    [DataMember]
+   
     public ReactiveCommand<UserError> DisplayErrorInformation
     {
         get { return _displayErrorInformation; }

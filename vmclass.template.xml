@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeTemplates version="3.0">
+  <CodeTemplate version="2.0">
+    <Header>
+      <_Group>C#</_Group>
+      <Version />
+      <MimeType>text/x-csharp</MimeType>
+      <Shortcut>vmclass</Shortcut>
+      <_Description>eight bot view model</_Description>
+      <TemplateType>Unknown</TemplateType>
+    </Header>
+    <Variables>
+      <Variable name="Name">
+        <Default>MyViewModel</Default>
+      </Variable>
+    </Variables>
+    <Code><![CDATA[public class $Name$ : ViewModelBase
+{
+//using System;
+//using System.Linq;
+//using System.Reactive;
+//using System.Reactive.Linq;
+//using System.Runtime.Serialization;
+//using System.Threading.Tasks;
+//using EightBot.BigBang.Extensions;
+//using EightBot.BigBang.ViewModel;
+//using FluentValidation;
+//using ReactiveUI;
+//using Splat;
+
+    public override string Title
+    {
+        get { return string.Empty; }
+    }
+
+    // properties
+ 
+    // lists
+
+    // commands
+
+    // initialization
+
+    ReactiveCommand<Unit, Unit> _initializeData;
+
+    public ReactiveCommand<Unit, Unit> InitializeData
+    {
+        get { return _initializeData; }
+        private set
+        {
+            this.RaiseAndSetIfChanged(ref _initializeData, value);
+        }
+    }   
+    protected override void RegisterObservables()
+    {
+            InitializeData =
+                ReactiveCommand
+                    .Create<Unit, Unit>(_ =>
+                    {
+
+                        return Unit.Default;
+                    })
+                    .DisposeWith(ViewModelBindings);
+ 
+            /* Navigation Commands *****/
+ 
+            /* Observables *****/
+
+            /* Validation *****/ 
+    } 
+}]]></Code>
+  </CodeTemplate>
+</CodeTemplates>

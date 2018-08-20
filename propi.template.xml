@@ -25,7 +25,7 @@
 public $someType$ $SomeProperty$
 {
     get => _$someProperty$;
-    set => this.RaiseAndSetIfChanged(ref _$someProperty$, value); 
+    private set => this.RaiseAndSetIfChanged(ref _$someProperty$, value); 
 }]]></Code>
   </CodeTemplate>
 </CodeTemplates>
