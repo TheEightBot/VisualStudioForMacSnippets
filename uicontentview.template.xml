@@ -16,6 +16,16 @@
     </Variables>
     <Code><![CDATA[public class $MyContent$View : ContentViewBase<ViewModels.$MyContent$View>
     {
+//using System;
+//using System.Reactive;
+//using System.Reactive.Linq;
+//using EightBot.BigBang.Extensions;
+//using EightBot.BigBang.XamForms.Extensions;
+//using EightBot.BigBang.XamForms.Pages;
+//using EightBot.BigBang.XamForms.Views;
+//using ReactiveUI;
+//using Xamarin.Forms;
+
         Grid _mainLayout;
 
         public $MyContent$View()
