@@ -17,6 +17,7 @@
     <Code><![CDATA[public class $Name$ : ContentPageBase<ViewModels.$Name$>
 { 
 //using System;
+//using System.Reactive;
 //using System.Reactive.Linq;
 //using EightBot.BigBang.Extensions;
 //using EightBot.BigBang.XamForms.Extensions;
