@@ -34,8 +34,8 @@
                 null,
                 Observable
                     .Merge(
-                        this.WhenAnyValue(vm => vm.SearchQuery).Select(_ => Unit.Default),
-                        this.WhenAnyObservable(x => x.RefreshFilter).Select(_ => Unit.Default))
+                        this.WhenAnyValue(vm => vm.SearchQuery).SelectUnit(),
+                        this.WhenAnyObservable(x => x.RefreshFilter).SelectUnit())
                     .ObserveOn(RxApp.MainThreadScheduler)
                     .Throttle(SearchDelay),
                 scheduler: RxApp.MainThreadScheduler)

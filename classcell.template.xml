@@ -58,7 +58,9 @@
     {  
         this.WhenAnyValue(x => x.ViewModel)
 		    .IsNotNull()
-		    .InvokeCommand(this, x => x.ViewModel.InitializeData);
+        .SelectUnit()
+		    .InvokeCommand(this, x => x.ViewModel.InitializeData)
+        .DisposeWith(ControlBindings);
     }
 }]]></Code>
   </CodeTemplate>

@@ -19,10 +19,7 @@ using FluentValidation;
 
 public class $Name$ : ViewModelBase<$Name$> {
 
-    public override string Title
-	{
-		get { return string.Empty; }
-	}
+    public override string Title => string.Empty;
 
     public override AbstractValidator<$Name$> Validator
 	{

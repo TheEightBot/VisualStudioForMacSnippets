@@ -12,7 +12,7 @@
     <Variables />
     <Code><![CDATA[            Observable
                 .Merge(
-                    this.WhenAnyValue(x => x.ViewModel).IsNotNull().Select(_ => Unit.Default),
+                    this.WhenAnyValue(x => x.ViewModel).IsNotNull().SelectUnit(),
                     this.WhenAnyObservable(x => x.Activated).Skip(1))
                 .InvokeCommand(this, x => x.ViewModel.InitializeData)
                 .DisposeWith(ControlBindings);]]></Code>

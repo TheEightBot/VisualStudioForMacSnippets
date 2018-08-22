@@ -36,8 +36,7 @@
             //using EightBot.BigBang.XamForms.Views;
             //using ReactiveUI;
             //using Xamarin.Forms;
-
-
+ 
         Grid _mainLayout;
 
         ReactiveListView<object> _myList;
@@ -93,6 +92,7 @@
 
             this.WhenAnyValue(x => x.ViewModel)
                 .IsNotNull()
+                .SelectUnit()
                 .InvokeCommand(this, x => x.ViewModel.InitializeData)
                 .DisposeWith(ControlBindings);
         }

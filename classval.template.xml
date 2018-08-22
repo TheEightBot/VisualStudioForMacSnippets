@@ -18,8 +18,8 @@
     {
         public $name$Validator()
         {
-            //RuleFor(auth => auth.UserName).NotEmpty().Length(4, 20);
-            //RuleFor(auth => auth.Password).NotEmpty().Length(4, 200);
+            //RuleFor(vm => vm.UserName).NotEmpty().Length(4, 20);
+            //RuleFor(vm => vm.Password).NotEmpty().Length(4, 200);
         }
     }]]></Code>
   </CodeTemplate>

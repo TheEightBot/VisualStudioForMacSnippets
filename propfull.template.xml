@@ -24,8 +24,8 @@
 
     public $type$ $MyProperty$
     {
-        get { return $property$; }
-        set { $property$ = value; }
+        get => $property$;
+        set => $property$ = value;
     }]]></Code>
   </CodeTemplate>
 </CodeTemplates>

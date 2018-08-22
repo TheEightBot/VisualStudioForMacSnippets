@@ -31,11 +31,13 @@
 
                 should$DoAThing$
                     .WhenIsTrue()
+                    .SelectUnit()
                     .InvokeCommand(this, c => c.ViewModel.$DoAThing$)
                     .DisposeWith(ControlBindings);
 
                 should$DoAThing$
                     .WhenIsFalse()
+                    .SelectUnit()
                     .InvokeCommand(this, c => c.ViewModel.$DontDoTheThing$)
                     .DisposeWith(ControlBindings);]]></Code>
   </CodeTemplate>

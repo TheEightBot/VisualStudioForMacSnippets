@@ -47,21 +47,15 @@
     public ReactiveCommand<Unit> InitializeData
     {
         get { return _initializeData; }
-        private set
-        {
-            this.RaiseAndSetIfChanged(ref _initializeData, value);
-        }
+        private set => this.RaiseAndSetIfChanged(ref _initializeData, value); 
     } 
 
     ReactiveCommand<UserError> _displayErrorInformation;
     [DataMember]
     public ReactiveCommand<UserError> DisplayErrorInformation
     {
-        get { return _displayErrorInformation; }
-        private set
-        {
-            this.RaiseAndSetIfChanged(ref _displayErrorInformation, value);
-        }
+        get => _displayErrorInformation;
+        private set => this.RaiseAndSetIfChanged(ref _displayErrorInformation, value);
     } 
 
     protected override void RegisterObservables()

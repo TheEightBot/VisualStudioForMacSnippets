@@ -44,21 +44,26 @@
          base.Initialize();
     }
 
-    public ReactiveCommand<Unit> InitializeData { get; private set; }
+    ReactiveCommand<$TParam$, $TReturn$> _$someCommand$;
 
-
+    public ReactiveCommand<$TParam$, $TReturn$> $SomeCommand$
+    {
+        get => _$someCommand$; 
+        private set => this.RaiseAndSetIfChanged(ref _$someCommand$, value); 
+    }
+ 
     protected override void RegisterObservables()
     {
         InitializeData =
             ReactiveCommand
-                .CreateAsyncTask(_ => 
+                .Create<Unit, unit>(_ => 
                 {
                     using (Data.SuppressChangeNotifications())
                     {
                         Data.Clear();
                     }     
 
-                    return System.Threading.Tasks.Task.FromResult(Unit.Default);
+                    return Unit.Default;
                 })
                 .DisposeWith(ViewModelBindings);
     }

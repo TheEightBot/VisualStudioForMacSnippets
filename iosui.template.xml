@@ -42,6 +42,7 @@
                 .Merge(
                     this.WhenAnyValue(x => x.ViewModel).IsNotNull().Select(_ => Unit.Default),
                     this.WhenAnyObservable(x => x.Activated).Skip(1))
+                .SelectUnit()
                 .InvokeCommand(this, x => x.ViewModel.InitializeData)
                 .DisposeWith(ControlBindings);  
         }
