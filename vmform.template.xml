@@ -27,10 +27,7 @@
     //using ReactiveUI;
     //using Splat;
 
-    public override string Title
-    {
-        get { return string.Empty; }
-    }
+    public override string Title => string.Empty;
 
     readonly $Name$Validator _validator = new $Name$Validator();
     public override AbstractValidator<$Name$> Validator => _validator; 
@@ -46,22 +43,16 @@
     [DataMember]
     public ReactiveCommand<Unit> InitializeData
     {
-        get { return _initializeData; }
-        private set
-        {
-            this.RaiseAndSetIfChanged(ref _initializeData, value);
-        }
+        get => _initializeData; 
+        private set => this.RaiseAndSetIfChanged(ref _initializeData, value); 
     } 
 
     ReactiveCommand<UserError> _displayErrorInformation;
    
     public ReactiveCommand<UserError> DisplayErrorInformation
     {
-        get { return _displayErrorInformation; }
-        private set
-        {
-            this.RaiseAndSetIfChanged(ref _displayErrorInformation, value);
-        }
+        get => _displayErrorInformation;
+        private set => this.RaiseAndSetIfChanged(ref _displayErrorInformation, value);
     }
 
     protected override void RegisterObservables()

@@ -30,10 +30,8 @@
 //using ReactiveUI;
 //using Splat;
 
-    public override string Title
-    {
-        get { return string.Empty; }
-    }
+    public override string Title => string.Empty; 
+ 
 
     public ReactiveList<$ModelName$> Data = new ReactiveList<$ModelName$>();
 

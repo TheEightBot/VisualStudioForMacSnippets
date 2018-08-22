@@ -16,9 +16,9 @@
     </Variables>
     <Code><![CDATA[$CommandName$ =
     ReactiveCommand
-	    .CreateAsyncTask(_ =>
+	    .Create<Unit, Unit>(_ =>
 		{ 
-		    return Task.FromResult(Unit.Default);
+		    return Unit.Default;
 		})
 		.DisposeWith(ViewModelBindings);]]></Code>
   </CodeTemplate>

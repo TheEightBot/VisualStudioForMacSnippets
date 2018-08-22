@@ -39,11 +39,8 @@
 
         public ReactiveCommand<$TParam$, $TReturn$> $SomeCommand$
         {
-            get { return _$someCommand$; }
-            private set
-            {
-                this.RaiseAndSetIfChanged(ref _$someCommand$, value);
-            }
+            get => _$someCommand$; 
+            private set => this.RaiseAndSetIfChanged(ref _$someCommand$, value); 
         }]]></Code>
   </CodeTemplate>
 </CodeTemplates>

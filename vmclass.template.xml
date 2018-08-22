@@ -45,11 +45,9 @@
 
     public ReactiveCommand<Unit, Unit> InitializeData
     {
-        get { return _initializeData; }
-        private set
-        {
-            this.RaiseAndSetIfChanged(ref _initializeData, value);
-        }
+        get => _initializeData;
+        private set => this.RaiseAndSetIfChanged(ref _initializeData, value);
+ 
     }   
     protected override void RegisterObservables()
     {

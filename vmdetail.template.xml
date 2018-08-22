@@ -30,10 +30,7 @@
 //using ReactiveUI;
 //using Splat;
 
-    public override string Title
-    {
-        get { return string.Empty; }
-    }
+    public override string Title => string.Empty;
 
     public override AbstractValidator<$Name$> Validator => null;
  
@@ -41,11 +38,8 @@
     [DataMember]
     public $ModelName$ Data
     {
-        get { return _data; }
-        private set
-        {
-            this.RaiseAndSetIfChanged(ref _data, value);
-        }
+        get => _data;
+        private set => this.RaiseAndSetIfChanged(ref _data, value); 
     } 
 
     public $Name$($ModelName$ detail)

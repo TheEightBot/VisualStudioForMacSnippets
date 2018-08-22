@@ -14,15 +14,12 @@
         <Default>Home</Default>
       </Variable>
     </Variables>
-    <Code><![CDATA[ ReactiveCommand<object> _navigateTo$Destination$;
+    <Code><![CDATA[        ReactiveCommand<Unit, Unit> _navigateTo$Destination$;
         [DataMember]
-        public ReactiveCommand<object> NavigateTo$Destination$
+        public ReactiveCommand<Unit, Unit> NavigateTo$Destination$
         {
-            get { return _navigateTo$Destination$; }
-            private set
-            {
-                this.RaiseAndSetIfChanged(ref _navigateTo$Destination$, value);
-            }
+            get => _navigateTo$Destination$;
+            private set => this.RaiseAndSetIfChanged(ref _navigateTo$Destination$, value);
         }]]></Code>
   </CodeTemplate>
 </CodeTemplates>

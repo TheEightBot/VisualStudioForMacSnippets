@@ -33,31 +33,22 @@
         //using ReactiveUI;
         //using Splat;
 
-        public override string Title
-        {
-            get { return "$SomeObject$s"; }
-        } 
-
+        public override string Title => "$SomeObject$s"; 
+          
         ReactiveList<$SomeObject$ListView> $_someObject$s;
 
         public ReactiveList<$SomeObject$ListView> $SomeObject$s
         {
-            get { return $_someObject$s; }
-            private set
-            {
-                this.RaiseAndSetIfChanged(ref $_someObject$s, value);
-            }
+            get => $_someObject$s; 
+            private set => this.RaiseAndSetIfChanged(ref $_someObject$s, value);
         }
 
         ReactiveCommand<Unit, Unit> _initializeData;
 
         public ReactiveCommand<Unit, Unit> InitializeData
         {
-            get { return _initializeData; }
-            private set
-            {
-                this.RaiseAndSetIfChanged(ref _initializeData, value);
-            }
+            get => _initializeData;
+            private set => this.RaiseAndSetIfChanged(ref _initializeData, value);
         }
   
         public $SomeObject$List() { }
@@ -88,11 +79,9 @@
             [DataMember]
             public bool IsAwesome
             {
-                get { return _isAwesome; }
-                set
-                {
-                    this.RaiseAndSetIfChanged(ref _isAwesome, value);
-                }
+                get => _isAwesome;
+                set => this.RaiseAndSetIfChanged(ref _isAwesome, value);
+               
             }
         }
     }]]></Code>

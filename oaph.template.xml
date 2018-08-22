@@ -23,7 +23,7 @@
     <Code><![CDATA[ObservableAsPropertyHelper<$type$> _$privateName$;
 
 public $type$ $PropertyName$  {
-	get { return _$privateName$.Value ?? default($type$); }
+	get => _$privateName$.Value ?? default($type$);
 }]]></Code>
   </CodeTemplate>
 </CodeTemplates>
