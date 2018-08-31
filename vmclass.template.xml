@@ -28,27 +28,24 @@
 //using ReactiveUI;
 //using Splat;
 
-    public override string Title
-    {
-        get { return string.Empty; }
-    }
-
+    public override string Title => string.Empty; 
+ 
     // properties
  
     // lists
 
     // commands
 
-    // initialization
-
     ReactiveCommand<Unit, Unit> _initializeData;
 
     public ReactiveCommand<Unit, Unit> InitializeData
     {
         get => _initializeData;
-        private set => this.RaiseAndSetIfChanged(ref _initializeData, value);
+        private set => this.RaiseAndSetIfChanged(ref _initializeData, value); 
+    } 
+
+    // initialization
  
-    }   
     protected override void RegisterObservables()
     {
             InitializeData =
