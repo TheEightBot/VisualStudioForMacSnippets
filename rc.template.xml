@@ -35,8 +35,8 @@
         <Default>SomeCommand</Default>
       </Variable>
     </Variables>
-    <Code><![CDATA[        ReactiveCommand<$TParam$, $TReturn$> _$someCommand$;
-
+    <Code><![CDATA[ReactiveCommand<$TParam$, $TReturn$> _$someCommand$;
+        [DataMember]
         public ReactiveCommand<$TParam$, $TReturn$> $SomeCommand$
         {
             get => _$someCommand$; 
