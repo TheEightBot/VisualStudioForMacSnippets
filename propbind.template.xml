@@ -20,9 +20,18 @@
         <Default>MyClass</Default>
       </Variable>
     </Variables>
-    <Code><![CDATA[        public static BindableProperty $Some$Property =
+    <Code><![CDATA[public static BindableProperty $Some$Property =
             BindableProperty.Create(nameof($Some$), typeof($SomeType$), typeof($SomeClass$), default($SomeType$),
-                                    propertyChanged: (bindable, oldValue, newValue) => (bindable as $SomeClass$)?.InvalidateSurface());
+                propertyChanged: (bindable, oldValue, newValue) =>
+                {
+                    var new$SomeType$ = newValue as $SomeType$;
+                    var current = bindable as $SomeClass$;
+
+                    if (current != null)
+                    {
+                     
+                    }
+                });
 
         public $SomeType$ $Some$
         {
