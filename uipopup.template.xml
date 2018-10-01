@@ -53,9 +53,9 @@
             BackgroundColor = Color.Transparent,
             HorizontalOptions = LayoutOptions.FillAndExpand,
             VerticalOptions = LayoutOptions.FillAndExpand,
-            ColumnSpacing = Sizes.Padding,
-            RowSpacing = Sizes.Padding,
-            Padding = Sizes.DoublePadding,
+            ColumnSpacing = Values.Sizes.Padding,
+            RowSpacing = Values.Sizes.Padding,
+            Padding = Values.Sizes.DoublePadding,
             ColumnDefinitions = new ColumnDefinitionCollection {
                     new ColumnDefinition { Width = GridLength.Star },
                     new ColumnDefinition { Width = GridLength.Star },
@@ -71,10 +71,10 @@
         {
             VerticalOptions = LayoutOptions.CenterAndExpand,
             HorizontalOptions = LayoutOptions.CenterAndExpand,
-            BackgroundColor = Colors.LightPageBackground,
+            BackgroundColor = Values.Colors.LightPageBackground,
             Content = _mainLayout,
-            Elevation = Sizes.PopupElevation,
-            CornerRadius = Sizes.RoundedCornerRadius,
+            Elevation = Values.Sizes.PopupElevation,
+            CornerRadius = Values.Sizes.RoundedCornerRadius,
         };
     }
 
