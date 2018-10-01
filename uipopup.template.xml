@@ -29,6 +29,8 @@
 //using EightBot.BigBang.XamForms.Views;
 //using ReactiveUI;
 //using Rg.Plugins.Popup.Animations;
+//using Sirva.Mobile.Driver.Extensions;
+//using Sirva.Mobile.Driver.Values;
 //using Xamarin.Forms;
 //using System.Reactive.Disposables;
 
