@@ -5,8 +5,8 @@
       <_Group>C#</_Group>
       <Version />
       <MimeType>text/x-csharp</MimeType>
-      <Shortcut>dialog</Shortcut>
-      <_Description>rg plugin dialog</_Description>
+      <Shortcut>uipopup</Shortcut>
+      <_Description>rg plugin popup base ui</_Description>
       <TemplateType>Unknown</TemplateType>
     </Header>
     <Variables>
