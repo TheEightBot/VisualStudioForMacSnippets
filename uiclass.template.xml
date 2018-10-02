@@ -43,9 +43,7 @@
                 BackgroundColor = Color.Transparent,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.FillAndExpand,
-                Margin = new Thickness(Values.Sizes.Padding, Values.Sizes.TriplePadding, Values.Sizes.Padding, Values.Sizes.Padding),
-                ColumnSpacing = Values.Sizes.Padding,
-                RowSpacing = Values.Sizes.HalfPadding,
+                Padding = Values.Sizes.Padding,
                 ColumnDefinitions = new ColumnDefinitionCollection { 
                     new ColumnDefinition { Width = GridLength.Star },
                 },
