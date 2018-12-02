@@ -5,8 +5,8 @@
       <_Group>C#</_Group>
       <Version />
       <MimeType>text/x-csharp</MimeType>
-      <Shortcut>cellui</Shortcut>
-      <_Description>reacive view cell template</_Description>
+      <Shortcut>uicell</Shortcut>
+      <_Description>newer uicell stuff</_Description>
       <TemplateType>Unknown</TemplateType>
     </Header>
     <Variables>
@@ -14,9 +14,11 @@
         <Default>notset</Default>
       </Variable>
     </Variables>
-    <Code><![CDATA[public class $Name$Cell : ReactiveViewCell<ViewModels.$Name$Item>
+    <Code><![CDATA[public class $Name$Cell : ViewCellBase<ViewModels.$Name$Item>
 { 
 //using System;
+//using System.Reactive.Disposables;
+//using System.Reactive.Linq; 
 //using EightBot.BigBang.Extensions;
 //using EightBot.BigBang.XamForms.Pages;
 //using EightBot.BigBang.XamForms.Views;
@@ -24,7 +26,7 @@
 //using ReactiveUI.XamForms;
 //using Xamarin.Forms;
 
-    public const int RequestedHeight = Values.Layout.StandardCellHeight;
+    public const int RequestedHeight = Values.Sizes.StandardCellHeight;
 
     Grid _mainLayout;
 
@@ -35,17 +37,16 @@
 
     protected override void SetupUserInterface()
     {   
-		 _mainLayout = new Grid
+         _mainLayout = new Grid
             {
                 HeightRequest = RequestedHeight,
-                Padding = new Thickness(Values.Layout.ThicknessDoublePadding.Left, 0, Values.Layout.ThicknessDoublePadding.Right, 0),
+                Padding = Values.Sizes.ThicknessHorizontalDoublePadding,
                 ColumnDefinitions = new ColumnDefinitionCollection {
-                        new ColumnDefinition { Width = GridLength.Star },
-                    },
+                    new ColumnDefinition { Width = GridLength.Star },
+                },
                 RowDefinitions = new RowDefinitionCollection {
-                        new RowDefinition { Height = GridLength.Star },
-                        new RowDefinition { Height = GridLength.Star }
-                    }
+                    new RowDefinition { Height = GridLength.Auto }
+                }
             };
 
             View = _mainLayout;
@@ -53,11 +54,7 @@
 
     protected override void BindControls()
     {  
-        this.WhenAnyValue(x => x.ViewModel) 
-		    .IsNotNull()
-        .SelectUnit()
-		    .InvokeCommand(this, x => x.ViewModel.InitializeData)
-        .DisposeWith(ControlBindings);
+
     }
 }]]></Code>
   </CodeTemplate>
