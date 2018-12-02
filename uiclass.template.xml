@@ -13,8 +13,11 @@
       <Variable name="Name">
         <Default>ClassName</Default>
       </Variable>
+      <Variable name="ViewModel">
+        <Default>ViewModelName</Default>
+      </Variable>
     </Variables>
-    <Code><![CDATA[public class $Name$ : ContentPageBase<ViewModels.$Name$>
+    <Code><![CDATA[public class $Name$ : ContentPageBase<ViewModels.$ViewModel$>
 { 
 //using System;
 //using System.Reactive.Disposables;
@@ -30,7 +33,7 @@
 
     public $Name$()
     {
-        ViewModel = new ViewModels.$Name$();
+        ViewModel = new ViewModels.$ViewModel$();
     } 
 
     protected override void SetupUserInterface()
@@ -43,9 +46,7 @@
                 BackgroundColor = Color.Transparent,
                 HorizontalOptions = LayoutOptions.FillAndExpand,
                 VerticalOptions = LayoutOptions.FillAndExpand,
-                Margin = new Thickness(Values.Sizes.Padding, Values.Sizes.TriplePadding, Values.Sizes.Padding, Values.Sizes.Padding),
-                ColumnSpacing = Values.Sizes.Padding,
-                RowSpacing = Values.Sizes.HalfPadding,
+                Padding = Values.Sizes.Padding,
                 ColumnDefinitions = new ColumnDefinitionCollection { 
                     new ColumnDefinition { Width = GridLength.Star },
                 },

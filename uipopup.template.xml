@@ -5,8 +5,8 @@
       <_Group>C#</_Group>
       <Version />
       <MimeType>text/x-csharp</MimeType>
-      <Shortcut>dialog</Shortcut>
-      <_Description>rg plugin dialog</_Description>
+      <Shortcut>uipopup</Shortcut>
+      <_Description>rg plugin popup base ui</_Description>
       <TemplateType>Unknown</TemplateType>
     </Header>
     <Variables>
@@ -14,7 +14,7 @@
         <Default>notset</Default>
       </Variable>
     </Variables>
-    <Code><![CDATA[public class $MyClass$Dialog : PopupPageBase<ViewModels.$MyClass$Dialog>
+    <Code><![CDATA[public class $MyClass : PopupPageBase<ViewModels.$MyClass>
 {
     Grid _mainLayout;
 
@@ -32,9 +32,9 @@
 //using Xamarin.Forms;
 //using System.Reactive.Disposables;
 
-    public $MyClass$Dialog()
+    public $MyClass()
     {
-        ViewModel = new ViewModels.$MyClass$Dialog();
+        ViewModel = new ViewModels.$MyClass();
     }
 
     protected override void SetupUserInterface()
@@ -53,9 +53,9 @@
             BackgroundColor = Color.Transparent,
             HorizontalOptions = LayoutOptions.FillAndExpand,
             VerticalOptions = LayoutOptions.FillAndExpand,
-            ColumnSpacing = Sizes.Padding,
-            RowSpacing = Sizes.Padding,
-            Padding = Sizes.DoublePadding,
+            ColumnSpacing = Values.Sizes.Padding,
+            RowSpacing = Values.Sizes.Padding,
+            Padding = Values.Sizes.DoublePadding,
             ColumnDefinitions = new ColumnDefinitionCollection {
                     new ColumnDefinition { Width = GridLength.Star },
                     new ColumnDefinition { Width = GridLength.Star },
@@ -71,10 +71,10 @@
         {
             VerticalOptions = LayoutOptions.CenterAndExpand,
             HorizontalOptions = LayoutOptions.CenterAndExpand,
-            BackgroundColor = Colors.LightPageBackground,
+            BackgroundColor = Values.Colors.LightPageBackground,
             Content = _mainLayout,
-            Elevation = Sizes.PopupElevation,
-            CornerRadius = Sizes.RoundedCornerRadius,
+            Elevation = Values.Sizes.PopupElevation,
+            CornerRadius = Values.Sizes.RoundedCornerRadius,
         };
     }
 
