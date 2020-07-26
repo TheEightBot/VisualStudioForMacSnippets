@@ -9,13 +9,34 @@
       <_Description>bind picker</_Description>
       <TemplateType>Unknown</TemplateType>
     </Header>
-    <Variables />
-    <Code><![CDATA[this._$myPicker$.Picker
-    .Bind(
-        this.WhenAnyValue(x => x.ViewModel.$Collection$),
-            x => ViewModel.$SomeId$ = x.$SomeId2$,
-            x => ViewModel.$SomeId$ == x.$SomeId2$,
-            x => x.$SomeLabel$)
-    .DisposeWith(ControlBindings);]]></Code>
+    <Variables>
+      <Variable name="pickerName">
+        <Default>pickerName</Default>
+        <_ToolTip>Picker Name</_ToolTip>
+      </Variable>
+      <Variable name="CollectionName">
+        <Default>CollectionName</Default>
+        <_ToolTip>Collection Name</_ToolTip>
+      </Variable>
+      <Variable name="SelectedProperty">
+        <Default>SelectedProperty</Default>
+        <_ToolTip>Selected Property</_ToolTip>
+      </Variable>
+      <Variable name="Value">
+        <Default>Value</Default>
+        <_ToolTip>Value</_ToolTip>
+      </Variable>
+      <Variable name="DisplayValue">
+        <Default>DisplayValue</Default>
+        <_ToolTip>Display Value</_ToolTip>
+      </Variable>
+    </Variables>
+    <Code><![CDATA[this._$pickerName$.Picker
+            .Bind(
+                this.WhenAnyValue(x => x.ViewModel.$Collection$),
+                x => ViewModel.$SelectedProperty$ = x.$Value$,
+                x => ViewModel.$SelectedProperty$ == x.$Value$,
+                x => x.$DisplayValue$)
+            .DisposeWith(ControlBindings);$end$]]></Code>
   </CodeTemplate>
 </CodeTemplates>

@@ -12,12 +12,14 @@
     <Variables>
       <Variable name="Command">
         <Default>CommandName</Default>
+        <_ToolTip>Command Name</_ToolTip>
       </Variable>
       <Variable name="control">
         <Default>controlName</Default>
+        <_ToolTip>Control Name</_ToolTip>
       </Variable>
     </Variables>
     <Code><![CDATA[this.BindCommand(ViewModel, x => x.$Command$, c => c._$control$)
-    .DisposeWith(ControlBindings);]]></Code>
+                .DisposeWith(ControlBindings);$end$]]></Code>
   </CodeTemplate>
 </CodeTemplates>

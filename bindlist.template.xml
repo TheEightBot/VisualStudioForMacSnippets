@@ -11,18 +11,30 @@
     </Header>
     <Variables>
       <Variable name="_myList">
-        <Default>notset</Default>
+        <Default>ListName</Default>
+        <_ToolTip>List Name</_ToolTip>
+      </Variable>
+      <Variable name="PropertyName">
+        <Default>PropertyName</Default>
+        <_ToolTip>Name of property used for binding</_ToolTip>
+      </Variable>
+      <Variable name="CellType">
+        <Default>CellType</Default>
+        <_ToolTip>Type of cell viewmodel</_ToolTip>
+      </Variable>
+      <Variable name="CommandName">
+        <Default>CommandName</Default>
+        <_ToolTip>Name of command to handle selection.</_ToolTip>
       </Variable>
     </Variables>
-    <Code><![CDATA[            this.$_myList$.Bind(this.WhenAnyValue(x => x.ViewModel.Data))
+    <Code><![CDATA[this.$_myList$.Bind(this.WhenAnyValue(x => x.ViewModel.$PropertyName$))
                 .DisposeWith(ControlBindings);
 
             this.$_myList$
-                .ListViewItemTapped
-                .Subscribe(selected =>
-                {
-                    $_myList$.SelectedItem = null;
-                })
-                .DisposeWith(ControlBindings);]]></Code>
+                .ListViewItemSelected<$CellType$>
+                .IsNotNull()
+                .Do(_ => $_myList$.SelectedItem = null)
+                .InvokeCommand(this, x => x.ViewModel.$CommandName$)
+                .DisposeWith(ControlBindings);$end$]]></Code>
   </CodeTemplate>
 </CodeTemplates>
