@@ -10,22 +10,14 @@
       <TemplateType>Unknown</TemplateType>
     </Header>
     <Variables>
-      <Variable name="someType">
+      <Variable name="SomeType">
         <Default>string</Default>
       </Variable>
-      <Variable name="someProperty">
+      <Variable name="SomeProperty">
         <Default>SomeProperty</Default>
       </Variable>
-      <Variable name="SomeProperty">
-        <Default>notset</Default>
-      </Variable>
     </Variables>
-    <Code><![CDATA[$someType$ _$someProperty$;
-[DataMember]
-public $someType$ $SomeProperty$
-{
-    get => _$someProperty$;
-    private set => this.RaiseAndSetIfChanged(ref _$someProperty$, value); 
-}]]></Code>
+    <Code><![CDATA[[Reactive]
+                public $SomeType$ $SomeProperty$ { get; set; }$end$]]></Code>
   </CodeTemplate>
 </CodeTemplates>

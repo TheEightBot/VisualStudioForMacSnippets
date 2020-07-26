@@ -15,10 +15,10 @@
         <_ToolTip>Return type of the indexer</_ToolTip>
       </Variable>
       <Variable name="name" isIdentifier="true">
-        <Default>MyProperty</Default>
-        <_ToolTip>Property name</_ToolTip>
+        <Default>PropertyName</Default>
+        <_ToolTip>Property Name</_ToolTip>
       </Variable>
     </Variables>
-    <Code><![CDATA[public $type$ $name$ { get; set; }]]></Code>
+    <Code><![CDATA[public $type$ $name$ { get; set; }$end$]]></Code>
   </CodeTemplate>
 </CodeTemplates>
