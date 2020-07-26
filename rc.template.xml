@@ -10,37 +10,17 @@
       <TemplateType>Unknown</TemplateType>
     </Header>
     <Variables>
-      <Variable name="CommandName">
-        <Default>Command</Default>
-      </Variable>
-      <Variable name="myCommand">
-        <Default>myCommand</Default>
-      </Variable>
-      <Variable name="MyCommand">
-        <Default>MyCommand</Default>
-      </Variable>
-      <Variable name="Unit">
-        <Default>Unit</Default>
-      </Variable>
       <Variable name="TParam">
-        <Default>Param</Default>
+        <Default>Input</Default>
       </Variable>
       <Variable name="TReturn">
-        <Default>Return</Default>
-      </Variable>
-      <Variable name="someCommand">
-        <Default>someCommand</Default>
+        <Default>Output</Default>
       </Variable>
       <Variable name="SomeCommand">
         <Default>SomeCommand</Default>
       </Variable>
     </Variables>
-    <Code><![CDATA[ReactiveCommand<$TParam$, $TReturn$> _$someCommand$;
-        [DataMember]
-        public ReactiveCommand<$TParam$, $TReturn$> $SomeCommand$
-        {
-            get => _$someCommand$; 
-            private set => this.RaiseAndSetIfChanged(ref _$someCommand$, value); 
-        }]]></Code>
+    <Code><![CDATA[[Reactive]
+                public ReactiveCommand<$TParam$, $TReturn$> $SomeCommand$ { get; private set; }$end$]]></Code>
   </CodeTemplate>
 </CodeTemplates>
