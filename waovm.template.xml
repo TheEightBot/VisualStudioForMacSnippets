@@ -14,14 +14,18 @@
         <Default>Command</Default>
       </Variable>
       <Variable name="ViewModelBindings">
-        <Default>notset</Default>
+        <Default>ViewModelBindings</Default>
       </Variable>
     </Variables>
     <Code><![CDATA[this.WhenAnyObservable(x => x.$SomeCommand$)
-    .ObserveOn(RxApp.MainThreadScheduler)
-    .Subscribe(val => { 
-         System.Diagnostics.Debug.WriteLine("{0}", val);
-    })
-    .DisposeWith($ViewModelBindings$);]]></Code>
+                .ObserveOn(RxApp.MainThreadScheduler)
+                .Subscribe(
+                    val =>
+                    { 
+                        System.Diagnostics.Debug.WriteLine($"{val}");
+                        $end$
+                    })
+                .DisposeWith($ViewModelBindings$);
+            ]]></Code>
   </CodeTemplate>
 </CodeTemplates>

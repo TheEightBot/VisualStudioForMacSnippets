@@ -21,7 +21,14 @@
       </Variable>
     </Variables>
     <Code><![CDATA[this.WhenAnyValue(x => x.ViewModel.$Property$)
-    .Subscribe($local$ => { })
-    .DisposeWith($Bindings$);]]></Code>
+                $end$
+                .Subscribe(
+                    $local$ =>
+                    {
+                        System.Diagnostics.Debug.WriteLine($"{$local$}");
+                        
+                    })
+                .DisposeWith($Bindings$);
+            ]]></Code>
   </CodeTemplate>
 </CodeTemplates>

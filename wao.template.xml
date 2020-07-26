@@ -11,20 +11,21 @@
     </Header>
     <Variables>
       <Variable name="SomeCommand">
-        <Default>Observable</Default>
-      </Variable>
-      <Variable name="&quot;{val}&quot;);&#xA;    })&#xA;    .DisposeWith(">
-        <Default>notset</Default>
+        <Default>CommandName</Default>
       </Variable>
       <Variable name="ControlBindings">
         <Default>ControlBindings</Default>
       </Variable>
     </Variables>
     <Code><![CDATA[this.WhenAnyObservable(x => x.ViewModel.$SomeCommand$)
-    .ObserveOn(RxApp.MainThreadScheduler)
-    .Subscribe(val => { 
-         System.Diagnostics.Debug.WriteLine("{0}", val);
-    })
-    .DisposeWith($ControlBindings$);]]></Code>
+                    .ObserveOn(RxApp.MainThreadScheduler)
+                    .Subscribe(
+                        val =>
+                        {
+                            System.Diagnostics.Debug.WriteLine($"{val}");
+                            $end$
+                        })
+                    .DisposeWith($ControlBindings$);
+                ]]></Code>
   </CodeTemplate>
 </CodeTemplates>

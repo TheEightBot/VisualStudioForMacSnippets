@@ -11,7 +11,7 @@
     </Header>
     <Variables />
     <Code><![CDATA[.ObserveOn(RxApp.MainThreadScheduler)
-.Subscribe(_ => {})
-.DisposeWith(ControlBindings);]]></Code>
+                .Subscribe()
+                .DisposeWith(ControlBindings);$end$]]></Code>
   </CodeTemplate>
 </CodeTemplates>
