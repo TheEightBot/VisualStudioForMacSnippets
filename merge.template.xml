@@ -10,24 +10,29 @@
       <TemplateType>Unknown</TemplateType>
     </Header>
     <Variables>
-      <Variable name="Value">
-        <Default>notset</Default>
+      <Variable name="Observable1">
+        <Default>Observable1</Default>
+      </Variable>
+      <Variable name="Observable2">
+        <Default>Observable2</Default>
       </Variable>
       <Variable name="Bindings">
         <Default>ControlBindings</Default>
       </Variable>
-      <Variable name="Command">
-        <Default>InitializeData</Default>
+      <Variable name="local">
+        <Default>val</Default>
       </Variable>
     </Variables>
     <Code><![CDATA[Observable
-    .Merge(
-        this.WhenAnyObservable(x => x.ViewModel.NavigateTo),
-        this.WhenAnyObservable(x => x.ViewModel.NavigateTo))
-    .Subscribe(val =>
-    {
-
-    }) 
-    .DisposeWith($Bindings$);]]></Code>
+                .Merge(
+                    this.WhenAnyObservable(x => x.ViewModel.$Observable1$),
+                    this.WhenAnyObservable(x => x.ViewModel.$Observable2$))
+                .Subscribe(
+                    $local$ =>
+                    {
+                        System.Diagnostics.Debug.WriteLine($"{$local$}");
+                        $end$
+                    })
+                .DisposeWith($Bindings$);]]></Code>
   </CodeTemplate>
 </CodeTemplates>
