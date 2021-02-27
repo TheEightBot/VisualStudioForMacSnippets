@@ -10,11 +10,11 @@
       <TemplateType>Unknown</TemplateType>
     </Header>
     <Variables>
-      <Variable name="CommandName">
-        <Default>CommandName</Default>
+      <Variable name="Command">
+        <Default>Command</Default>
       </Variable>
     </Variables>
-    <Code><![CDATA[$CommandName$ =
+    <Code><![CDATA[$Command$ =
                 ReactiveCommand
                     .Create(() => { })
                     .DisposeWith(ViewModelBindings);$end$]]></Code>
