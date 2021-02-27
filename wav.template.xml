@@ -11,7 +11,7 @@
     </Header>
     <Variables>
       <Variable name="Property">
-        <Default>PropertyName</Default>
+        <Default>Property</Default>
       </Variable>
       <Variable name="local">
         <Default>val</Default>
@@ -21,12 +21,11 @@
       </Variable>
     </Variables>
     <Code><![CDATA[this.WhenAnyValue(x => x.ViewModel.$Property$)
-                $end$
                 .Subscribe(
                     $local$ =>
                     {
                         System.Diagnostics.Debug.WriteLine($"{$local$}");
-                        
+                        $end$
                     })
                 .DisposeWith($Bindings$);]]></Code>
   </CodeTemplate>
