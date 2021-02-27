@@ -10,28 +10,32 @@
       <TemplateType>Unknown</TemplateType>
     </Header>
     <Variables>
-      <Variable name="Prop1">
+      <Variable name="Property">
         <Default>Property</Default>
       </Variable>
-      <Variable name="Prop2">
-        <Default>Property2</Default>
+      <Variable name="Observable">
+        <Default>Observable</Default>
       </Variable>
-      <Variable name="val1">
-        <Default>local1</Default>
+      <Variable name="Local1">
+        <Default>Local1</Default>
       </Variable>
-      <Variable name="val2">
-        <Default>local2</Default>
+      <Variable name="Local2">
+        <Default>Local2</Default>
       </Variable>
-      <Variable name="control">
-        <Default>controlName</Default>
+      <Variable name="Bindings">
+        <Default>ControlBindings</Default>
       </Variable>
     </Variables>
-    <Code><![CDATA[            Observable
+    <Code><![CDATA[Observable
                 .CombineLatest(
-                    this.WhenAnyValue(x => x.ViewModel.$Prop1$),
-                    this.WhenAnyValue(x => x.ViewModel.$Prop2$), 
-                        ($val1$, $val2$) => string.Format("{0}, {1}", $val1$, $val2$))
-                .BindTo(_$control$, c => c.Text)
-                .DisposeWith(ControlBindings);]]></Code>
+                    this.WhenAnyValue(x => x.$Property$),
+                    this.WhenAnyObservable(x => x.$Observable$),
+                    ($Local1$, $Local2$) => new { $Local1$, $Local2$ })
+                .Subscribe(
+                    x =>
+                    {
+                        $end$
+                    })
+                .DisposeWith($Bindings$);]]></Code>
   </CodeTemplate>
 </CodeTemplates>
