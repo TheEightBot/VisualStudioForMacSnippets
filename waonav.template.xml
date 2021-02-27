@@ -14,7 +14,7 @@
         <Default>SomePage</Default>
       </Variable>
     </Variables>
-    <Code><![CDATA[            this.WhenAnyObservable(x => x.ViewModel.NavigateTo$SomePage$)
+    <Code><![CDATA[this.WhenAnyObservable(x => x.ViewModel.NavigateTo$SomePage$)
                 .NavigateToPage(this, x => new $SomePage$(x))
                 .DisposeWith(ControlBindings);]]></Code>
   </CodeTemplate>
