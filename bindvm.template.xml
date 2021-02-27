@@ -11,13 +11,13 @@
     </Header>
     <Variables>
       <Variable name="Property">
-        <Default>PropertyName</Default>
+        <Default>Property</Default>
       </Variable>
-      <Variable name="controlName">
-        <Default>controlName</Default>
+      <Variable name="control">
+        <Default>control</Default>
       </Variable>
     </Variables>
-    <Code><![CDATA[this.Bind(ViewModel, x => x.$Property$, c => c._$controlName$)
-	.DisposeWith(ControlBindings);]]></Code>
+    <Code><![CDATA[this.Bind(ViewModel, x => x.$Property$, c => c._$control$)
+                .DisposeWith(ControlBindings);]]></Code>
   </CodeTemplate>
 </CodeTemplates>
