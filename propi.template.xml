@@ -10,14 +10,14 @@
       <TemplateType>Unknown</TemplateType>
     </Header>
     <Variables>
-      <Variable name="SomeType">
+      <Variable name="Type">
         <Default>string</Default>
       </Variable>
-      <Variable name="SomeProperty">
-        <Default>SomeProperty</Default>
+      <Variable name="Property">
+        <Default>Property</Default>
       </Variable>
     </Variables>
     <Code><![CDATA[[Reactive]
-                public $SomeType$ $SomeProperty$ { get; set; }$end$]]></Code>
+                public $Type$ $Property$ { get; set; }$end$]]></Code>
   </CodeTemplate>
 </CodeTemplates>
