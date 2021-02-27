@@ -10,15 +10,15 @@
       <TemplateType>Expansion</TemplateType>
     </Header>
     <Variables>
-      <Variable name="type" isIdentifier="true">
+      <Variable name="Type" isIdentifier="true">
         <Default>object</Default>
         <_ToolTip>Return type of the indexer</_ToolTip>
       </Variable>
-      <Variable name="name" isIdentifier="true">
-        <Default>PropertyName</Default>
+      <Variable name="Property" isIdentifier="true">
+        <Default>Property</Default>
         <_ToolTip>Property Name</_ToolTip>
       </Variable>
     </Variables>
-    <Code><![CDATA[public $type$ $name$ { get; set; }$end$]]></Code>
+    <Code><![CDATA[public $Type$ $Property$ { get; set; }$end$]]></Code>
   </CodeTemplate>
 </CodeTemplates>
