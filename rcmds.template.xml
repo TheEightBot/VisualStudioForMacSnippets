@@ -17,6 +17,6 @@
     <Code><![CDATA[$CommandName$ =
                 ReactiveCommand
                     .Create(() => { })
-  		              .DisposeWith(ViewModelBindings);$end$]]></Code>
+                    .DisposeWith(ViewModelBindings);$end$]]></Code>
   </CodeTemplate>
 </CodeTemplates>
