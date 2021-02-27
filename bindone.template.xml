@@ -11,15 +11,15 @@
     </Header>
     <Variables>
       <Variable name="Property">
-        <Default>PropertyName</Default>
-        <_ToolTip>Property Name</_ToolTip>
+        <Default>Property</Default>
+        <_ToolTip>Property</_ToolTip>
       </Variable>
-      <Variable name="controlName">
-        <Default>controlName</Default>
-        <_ToolTip>Control Name</_ToolTip>
+      <Variable name="control">
+        <Default>control</Default>
+        <_ToolTip>control</_ToolTip>
       </Variable>
     </Variables>
-    <Code><![CDATA[this.OneWayBind(ViewModel, x => x.$Property$, c => c._$controlName$)
+    <Code><![CDATA[this.OneWayBind(ViewModel, x => x.$Property$, c => c._$control$)
                 .DisposeWith(ControlBindings);$end$]]></Code>
   </CodeTemplate>
 </CodeTemplates>
