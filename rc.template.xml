@@ -21,6 +21,6 @@
       </Variable>
     </Variables>
     <Code><![CDATA[[Reactive]
-                public ReactiveCommand<$TParam$, $TReturn$> $SomeCommand$ { get; private set; }$end$]]></Code>
+            public ReactiveCommand<$TParam$, $TReturn$> $SomeCommand$ { get; private set; }$end$]]></Code>
   </CodeTemplate>
 </CodeTemplates>

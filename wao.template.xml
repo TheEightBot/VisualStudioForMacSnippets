@@ -13,21 +13,17 @@
       <Variable name="Observable">
         <Default>Observable</Default>
       </Variable>
-      <Variable name="Bindings">
-        <Default>ControlBindings</Default>
-      </Variable>
       <Variable name="local">
-        <Default>val</Default>
+        <Default>x</Default>
       </Variable>
     </Variables>
-    <Code><![CDATA[this.WhenAnyObservable(x => x.ViewModel.$Observable$)
-                .ObserveOn(RxApp.MainThreadScheduler)
-                .Subscribe(
-                    $local$ =>
-                    {
-                        System.Diagnostics.Debug.WriteLine($"{$local$}");
-                        $end$
-                    })
-                .DisposeWith($Bindings$);]]></Code>
+    <Code><![CDATA[this.WhenAnyObservable(x => x.$Observable$)
+            .Subscribe(
+                $local$ =>
+                {
+                    System.Diagnostics.Debug.WriteLine($"{$local$}");
+                    $end$
+                })
+            .DisposeWith(disposables);]]></Code>
   </CodeTemplate>
 </CodeTemplates>

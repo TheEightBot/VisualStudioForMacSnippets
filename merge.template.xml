@@ -16,23 +16,20 @@
       <Variable name="Observable2">
         <Default>Observable2</Default>
       </Variable>
-      <Variable name="Bindings">
-        <Default>ControlBindings</Default>
-      </Variable>
       <Variable name="local">
         <Default>val</Default>
       </Variable>
     </Variables>
     <Code><![CDATA[Observable
-                .Merge(
-                    this.WhenAnyObservable(x => x.ViewModel.$Observable1$),
-                    this.WhenAnyObservable(x => x.ViewModel.$Observable2$))
-                .Subscribe(
-                    $local$ =>
-                    {
-                        System.Diagnostics.Debug.WriteLine($"{$local$}");
-                        $end$
-                    })
-                .DisposeWith($Bindings$);]]></Code>
+            .Merge(
+                this.WhenAnyObservable(x => x.$Observable1$),
+                this.WhenAnyObservable(x => x.$Observable2$))
+            .Subscribe(
+                $local$ =>
+                {
+                    System.Diagnostics.Debug.WriteLine($"{$local$}");
+                    $end$
+                })
+            .DisposeWith(disposables);]]></Code>
   </CodeTemplate>
 </CodeTemplates>

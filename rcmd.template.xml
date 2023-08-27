@@ -15,12 +15,12 @@
       </Variable>
     </Variables>
     <Code><![CDATA[$Command$ =
-                ReactiveCommand
-                    .Create(
-                        () =>
-                        {
-                            $end$
-                        })
-                    .DisposeWith(ViewModelBindings);]]></Code>
+            ReactiveCommand
+                .Create(
+                    () =>
+                    {
+                        $end$
+                    })
+                .DisposeWith(disposables);]]></Code>
   </CodeTemplate>
 </CodeTemplates>

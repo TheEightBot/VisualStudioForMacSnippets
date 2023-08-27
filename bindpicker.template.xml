@@ -32,11 +32,11 @@
       </Variable>
     </Variables>
     <Code><![CDATA[this._$pickerName$.Picker
-            .Bind(
-                this.WhenAnyValue(x => x.ViewModel.$Collection$),
-                x => ViewModel.$SelectedProperty$ = x.$Value$,
-                x => ViewModel.$SelectedProperty$ == x.$Value$,
-                x => x.$DisplayValue$)
-            .DisposeWith(ControlBindings);$end$]]></Code>
+        .Bind(
+            this.WhenAnyValue(x => x.ViewModel.$Collection$),
+            x => ViewModel.$SelectedProperty$ = x.$Value$,
+            x => ViewModel.$SelectedProperty$ == x.$Value$,
+            x => x.$DisplayValue$)
+        .DisposeWith(disposables);$end$]]></Code>
   </CodeTemplate>
 </CodeTemplates>

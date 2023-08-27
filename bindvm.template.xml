@@ -18,6 +18,6 @@
       </Variable>
     </Variables>
     <Code><![CDATA[this.Bind(ViewModel, x => x.$Property$, c => c._$control$)
-                .DisposeWith(ControlBindings);]]></Code>
+            .DisposeWith(disposables);]]></Code>
   </CodeTemplate>
 </CodeTemplates>

@@ -18,6 +18,6 @@
       </Variable>
     </Variables>
     <Code><![CDATA[[Reactive]
-                public $Type$ $Property$ { get; set; }$end$]]></Code>
+            public $Type$ $Property$ { get; set; }$end$]]></Code>
   </CodeTemplate>
 </CodeTemplates>
